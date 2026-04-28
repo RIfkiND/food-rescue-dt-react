@@ -63,13 +63,14 @@ export const BottomNavBar = () => {
   
   const navItems = [
     { icon: Search, label: 'Explore', path: '/explore' },
-    { icon: PlusCircle, label: 'Donate', path: '/login' },
+    { icon: MapPin, label: 'Map', path: '/map' },
+    { icon: Store, label: 'Mitra', path: '/mitra' },
     { icon: History, label: 'Activity', path: '#' },
     { icon: User, label: 'Profile', path: '#' },
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-6 pt-2 h-20 md:hidden bg-white/80 backdrop-blur-lg rounded-t-3xl border-t border-surface-container shadow-level-3">
+    <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 h-20 md:hidden bg-white/80 backdrop-blur-lg rounded-t-3xl border-t border-surface-container shadow-level-3">
       {navItems.map((item) => {
         const isActive = location.pathname === item.path;
         return (
@@ -78,7 +79,7 @@ export const BottomNavBar = () => {
             to={item.path}
             className={cn(
               "flex flex-col items-center justify-center transition-all duration-200 active:scale-90",
-              isActive ? "text-primary px-4 py-1 bg-primary/5 rounded-2xl" : "text-on-surface-variant"
+              isActive ? "text-primary px-3 py-1 bg-primary/5 rounded-2xl" : "text-on-surface-variant"
             )}
           >
             <item.icon className={cn("w-6 h-6 mb-1", isActive && "fill-primary/20")} />
@@ -90,7 +91,22 @@ export const BottomNavBar = () => {
   );
 };
 
-export const FoodCard = ({ item }: { item: any }) => {
+export interface FoodItemProps {
+  id: string;
+  title: string;
+  store: string;
+  distance: string;
+  time?: string;
+  timeLeft?: string;
+  originalPrice: number;
+  discountedPrice: number;
+  rating: number;
+  image: string;
+  discount?: string;
+  [key: string]: any;
+}
+
+export const FoodCard = (item: FoodItemProps) => {
   return (
     <Link to={`/item/${item.id}`} className="group bg-surface-container-lowest rounded-2xl shadow-level-1 overflow-hidden border border-outline-variant/30 transition-all hover:shadow-level-2">
       <div className="aspect-[4/3] relative overflow-hidden">
@@ -108,7 +124,7 @@ export const FoodCard = ({ item }: { item: any }) => {
         <div className="flex justify-between items-start mb-2">
           <h3 className="font-h3 text-lg text-on-surface leading-tight transition-colors group-hover:text-primary">{item.title}</h3>
           <div className="text-right">
-            <span className="block font-h3 text-lg text-primary leading-none">${item.price}</span>
+            <span className="block font-h3 text-lg text-primary leading-none">${item.discountedPrice}</span>
             <span className="text-caption text-on-surface-variant line-through block mt-1">${item.originalPrice}</span>
           </div>
         </div>
@@ -118,7 +134,7 @@ export const FoodCard = ({ item }: { item: any }) => {
         <div className="flex items-center justify-between mt-4">
           <div className="flex items-center gap-1 text-secondary">
             <Timer className="w-4 h-4" />
-            <span className="font-label-md text-xs">{item.timeLeft}</span>
+            <span className="font-label-md text-xs">{item.timeLeft || item.time}</span>
           </div>
           <button className="p-2 bg-primary text-white rounded-full shadow-level-1 hover:bg-primary-container transition-colors active:scale-95">
             <ShoppingCart className="w-4 h-4" />

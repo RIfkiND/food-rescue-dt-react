@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Search, SlidersHorizontal, Map as MapIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { TopAppBar, BottomNavBar, FoodCard } from '../components/Shared';
-import { cn } from '@/src/lib/utils';
+import { cn } from '../lib/utils';
+import { Link } from 'react-router-dom';
 
 const FOOD_ITEMS = [
   {
@@ -71,10 +72,10 @@ const ExplorePage = () => {
                 <SlidersHorizontal className="w-4 h-4 text-primary" />
               </button>
             </div>
-            <button className="hidden sm:flex md:hidden lg:flex items-center gap-2 px-6 h-[52px] bg-primary text-white rounded-2xl shadow-level-2 transition-transform active:scale-95">
+            <Link to="/map" className="hidden sm:flex md:hidden lg:flex items-center gap-2 px-6 h-[52px] bg-primary text-white rounded-2xl shadow-level-2 transition-transform active:scale-95">
               <MapIcon className="w-5 h-5" />
               <span className="font-label-md">Map</span>
-            </button>
+            </Link>
           </div>
 
           <div className="flex overflow-x-auto gap-2 no-scrollbar -mx-4 px-4 pb-2">
@@ -97,10 +98,10 @@ const ExplorePage = () => {
 
         {/* Section Title */}
         <div className="flex items-center justify-between mt-6 mb-8">
-          <h2 className="font-h3">Available Nearby</h2>
-          <button className="font-label-md text-primary flex items-center gap-2 group">
+          <h2 className="font-h2">Available Nearby</h2>
+          <Link to="/map" className="font-label-md text-primary flex items-center gap-2 group">
             Map View <MapIcon className="w-4 h-4 transition-transform group-hover:scale-110" />
-          </button>
+          </Link>
         </div>
 
         {/* Grid */}
@@ -112,7 +113,18 @@ const ExplorePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
             >
-              <FoodCard item={item} />
+              <FoodCard 
+                id={item.id}
+                title={item.title}
+                store={item.store}
+                distance="0.8 mi" // Default distance since mock data doesn't have it
+                discountedPrice={parseFloat(item.price)}
+                originalPrice={parseFloat(item.originalPrice)}
+                timeLeft={item.timeLeft}
+                rating={4.5}
+                image={item.image}
+                discount={item.discount}
+              />
             </motion.div>
           ))}
         </div>

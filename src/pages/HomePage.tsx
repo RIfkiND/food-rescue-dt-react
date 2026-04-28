@@ -2,10 +2,12 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Leaf, Store, Utensils, ShoppingBag, MapPin, ArrowRight, ShieldCheck } from 'lucide-react';
 import { TopAppBar, BottomNavBar } from '../components/Shared';
-import { Link } from 'react-router-dom';
-import { cn } from '@/src/lib/utils';
+import { Link, useNavigate } from 'react-router-dom';
+import { cn } from '../lib/utils';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen flex flex-col pb-20 md:pb-0">
       <TopAppBar />
@@ -129,15 +131,16 @@ const HomePage = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: 'Green Bean Cafe', dist: '0.8 mi', price: '$4.99', type: 'Surprise Bag', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCa-yQ5TvJQOjeeuodcLLN3J-VkmbQIRVpsn9x9vilnRFYadhp0P5L86pv1F1hxNY8yPY6VF27tGrIhQWFaQ91Hingo55oeVpFUUUqGv28_Zcw7NV32CKWSOvnHRur94Zna1wVHskSu7RAcklUDj7b7YzkdB0_8-C_ll0QQxob6AKxpG91vbpkTzbX-qbl5T4SLvBcSkxC8HzU1Oc2tqUlbapuI8X0KspKflVdVy_9J5LOSZxTYDOxiPL0nuXsJz56OJjHIlsKVRxo', verified: true },
-              { name: 'Artisan Bakehouse', dist: '1.2 mi', price: '$3.50', type: 'Pastry Box', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDuBx4mNcbCGXjF4mdZKyKcVbl-rnQqpno_ROrc7RRPp_iouKjFLH1Vz7XhiQV-4B3p9zO3P-dQUJuoXqQwCiYf0tPlmwg8tFF3ySfAJpYYAu9-6Ib15MO6HT8Gyfz2A5TzKD12XtPhjQaz8gQbKM4Isso7AYZJlC46-qCaPzeuysj_3Sy-NOfHi1F92-phSs2yFLnUI-qjR6Kng1O7lH16QI8PeNaGembS92fy5kFX5mnbKjSX6VFyvGxA4OmVWDo6m_tawnUV0ss', discount: 'Discount' },
-              { name: 'City Fresh Grocers', dist: '2.5 mi', price: '$5.99', type: 'Produce Bag', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB0dcJt5fJo0LnrbIdFgjLczXmwjE9NFXWBfWyLK-X9cWlpR0fmG70uGFeqSTCh_LM6pV_YjTflAjKamBqc0gOzQlSAJKj5cA41TmorvSLkgcAtEOEmjEmpTlj4GhmG7fjt9eYDLOppkMlp-YdE_ByRQpgcP_1REC8Ou2btn87hR2moFOuDGZKZTAJxA4znPok-GZIu6JxAf3ZtjQSmTuEtmCJeGfV9MOccdLFrQ-CM51DQVMeWYfVWNs4pCW24F23qZoAaizbdY5c' },
-              { name: 'Mama\'s Kitchen', dist: '3.1 mi', price: '$6.50', type: 'Dinner Portion', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAXXpN4V30zZrnue0WDJDaYGAyX1eO1CP1JR1oTqwGOvcU43fq_SwyEKFiZhsteI8o_gBCvvbMqiIQZSSQSYqKjTfYaWtRwextsE5XzXWUhXdX5Z2EGkbJSdwft_fdripS7zu8JxLOdEj_mjtYeB8upIstdoEyfq0OoDGLp9I5Y3hmB2FdJv_FH5P_Avvz4JRY25_wtl1RIz6SxKEKB1mvZiTOVAcenwmLlWGsMSyLAv2ddiC7FN3XgnPppdkGwKH_L4cKBlJzK0tk' },
+              { id: '1', name: 'Green Bean Cafe', dist: '0.8 mi', price: '$4.99', type: 'Surprise Bag', img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2694&auto=format&fit=crop', verified: true },
+              { id: '2', name: 'Artisan Bakehouse', dist: '1.2 mi', price: '$3.50', type: 'Pastry Box', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2672&auto=format&fit=crop', discount: 'Discount' },
+              { id: '3', name: 'City Fresh Grocers', dist: '2.5 mi', price: '$5.99', type: 'Produce Bag', img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop' },
+              { id: '4', name: 'Mama\'s Kitchen', dist: '3.1 mi', price: '$6.50', type: 'Dinner Portion', img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2574&auto=format&fit=crop' },
             ].map((partner, i) => (
               <motion.div 
                 key={i} 
                 whileHover={{ scale: 1.02 }}
-                className="bg-surface-container-lowest rounded-2xl p-4 shadow-level-1 border border-outline-variant/30 flex flex-col group cursor-pointer"
+                onClick={() => navigate(`/partner/${partner.id}`)}
+                className="bg-surface-container-lowest rounded-2xl p-4 shadow-level-1 border border-outline-variant/30 flex flex-col group cursor-pointer transition-all hover:shadow-level-2"
               >
                 <div className="flex justify-between items-start mb-6">
                   <img src={partner.img} alt={partner.name} className="w-16 h-16 rounded-full object-cover border-2 border-surface-container" />

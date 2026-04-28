@@ -16,7 +16,7 @@ const ItemPage = () => {
       {/* Visual Header */}
       <div className="relative h-80 w-full bg-surface-container-high md:h-[450px]">
         <img 
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC5MGGMPDVaRoa5Oz4QpNrFrTTqeawjhFpukwKFjn_5mYipcSUAwud0Gt2pqfc56q1-aFleISZ0scz1Y72SQIhCtMhiGfqA7uUVLXee_vUGzwfJhGj6en4ZuEAi7eAID73YsB_jHAslv_hyOgWK_G74Ez7XvVOAmr4DJgQRHDU_kBjOmH407m_TZe0YirU27ZC1Lc7JDjlZPmC9EYWe_-zydw1Len5S_YB6k6iVnOcWNLaoHHAO8-hQVR4MvbBlY1QvVzgRatPaL8" 
+          src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=2526&auto=format&fit=crop" 
           alt="Item" 
           className="w-full h-full object-cover"
         />
@@ -62,9 +62,12 @@ const ItemPage = () => {
         </div>
 
         {/* Store Info */}
-        <section className="flex items-center gap-4 p-5 bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-level-1 transition-all hover:bg-surface-container-low cursor-pointer">
+        <section 
+          onClick={() => navigate('/partner/1')}
+          className="flex items-center gap-4 p-5 bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-level-1 transition-all hover:bg-surface-container-low cursor-pointer"
+        >
           <img 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV8NQME2BB-Z6PHy7rzLLEKBbbBMapQOA0ZR0z8F_yGExkt5pxa40Lr_OBvMgwrcQ4XkVJ7p7v39CfPA7N8h_ClSUJSwMAyerYNMtYfnL4ozuHfD4_4dKtF1j1qP5VDfKFe5gtsHV1PX5xg_L7IJOn7CyQdnHsxjK6q68IAs6mTTNM5E9vJg7JXjQsLaI8DZR-XRvFSjRdho4bhKOxbN-9P3mTgqdFvemj6wOQu_AsAaAk_JTagBiJZNxXBvjk4h5PW_uzsjjGpwU" 
+            src="https://images.unsplash.com/photo-1540333563391-64551131917c?q=80&w=2670&auto=format&fit=crop" 
             alt="Daily Bread Co" 
             className="w-14 h-14 rounded-full object-cover border-2 border-surface-container"
           />
@@ -131,11 +134,14 @@ const ItemPage = () => {
         </div>
         <div className="flex-1 flex gap-4">
           <button className="flex-1 py-4 px-6 rounded-2xl border-2 border-primary text-primary font-label-md hover:bg-primary/5 transition-all active:scale-95 text-center">
-            Add to Cart
+            Add to Bag
           </button>
-          <button className="flex-1 py-4 px-6 rounded-2xl bg-primary text-white font-label-md shadow-level-2 hover:bg-primary-container transition-all active:scale-95 text-center flex items-center justify-center gap-2">
+          <Link 
+            to="/checkout"
+            className="flex-1 py-4 px-6 rounded-2xl bg-primary text-white font-label-md shadow-level-2 hover:bg-primary-container transition-all active:scale-95 text-center flex items-center justify-center gap-2"
+          >
             <ShoppingBag className="w-5 h-5" /> Reserve Now
-          </button>
+          </Link>
         </div>
       </div>
 
