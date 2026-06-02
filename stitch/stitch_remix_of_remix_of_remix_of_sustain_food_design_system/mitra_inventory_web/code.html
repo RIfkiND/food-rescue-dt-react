@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RescueEat | Mitra Inventory Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;800;900&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#783d01",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb780",
+                        "on-tertiary-fixed-variant": "#5a4400",
+                        "on-primary-fixed-variant": "#0e5138",
+                        "outline-variant": "#bfc9c1",
+                        "on-tertiary-container": "#fcd579",
+                        "on-primary-container": "#a8e7c5",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#95d4b3",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffdcc4",
+                        "secondary-container": "#ffab69",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "primary-fixed-dim": "#95d4b3",
+                        "tertiary-fixed-dim": "#e7c268",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "background": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-primary-fixed": "#002114",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-surface-variant": "#404943",
+                        "on-surface": "#191c1d",
+                        "primary": "#0f5238",
+                        "outline": "#707973",
+                        "surface-container-high": "#e7e8e9",
+                        "tertiary-container": "#775b06",
+                        "primary-container": "#2d6a4f",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#2c694e",
+                        "primary-fixed": "#b1f0ce",
+                        "surface-bright": "#f8f9fa",
+                        "secondary": "#8e4e14",
+                        "on-tertiary-fixed": "#251a00",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-fixed": "#ffdf96",
+                        "tertiary": "#5a4400",
+                        "error": "#ba1a1a",
+                        "on-background": "#191c1d",
+                        "surface-dim": "#d9dadb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "xxxl": "64px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Be Vietnam Pro"],
+                        "h2": ["Epilogue"],
+                        "label-md": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "h3": ["Epilogue"],
+                        "h1": ["Epilogue"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .soft-shadow {
+            box-shadow: 0px 4px 20px rgba(29, 53, 87, 0.05);
+        }
+        .interactive-shadow:hover {
+            box-shadow: 0px 8px 24px rgba(45, 106, 79, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="fixed left-0 top-0 bottom-0 z-50 flex flex-col p-4 gap-2 h-screen w-64 border-r border-zinc-100 bg-white font-epilogue text-sm">
+<div class="mb-6">
+<h1 class="text-lg font-black text-emerald-800 mb-1">RescueEat Admin</h1>
+<p class="text-xs text-zinc-500">Food Waste Reduction Hub</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 hover:bg-zinc-50 hover:text-emerald-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-emerald-50 text-emerald-700 font-bold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 hover:bg-zinc-50 hover:text-emerald-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 hover:bg-zinc-50 hover:text-emerald-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span>History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 hover:bg-zinc-50 hover:text-emerald-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Verification</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 hover:bg-zinc-50 hover:text-emerald-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</a>
+</nav>
+<button class="mt-4 mb-8 w-full py-4 bg-primary text-on-primary font-bold rounded-lg flex items-center justify-center gap-2 interactive-shadow transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+            Add New Listing
+        </button>
+<div class="border-t border-zinc-100 pt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 hover:bg-zinc-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 hover:bg-zinc-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col min-w-0">
+<!-- TopAppBar (Authority Source: JSON) -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-6 h-16 w-full bg-white border-b border-zinc-100 shadow-sm font-epilogue antialiased">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-zinc-400" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary transition-all text-sm" placeholder="Search inventory..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-zinc-500 hover:bg-emerald-50 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 text-zinc-500 hover:bg-emerald-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-zinc-100">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-on-surface">The Green Bakery</p>
+<p class="text-[10px] text-zinc-500">Partner ID: #4421</p>
+</div>
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A close-up, high-quality photograph of a professional baker's logo featuring a stylized rolling pin and wheat stalk, set against a clean, warm-minimalist kitchen background. The lighting is soft and natural, emphasizing a premium and organic brand identity. The color palette is composed of soft cream, earthy browns, and deep emerald greens, creating a trustworthy and sustainable community food service aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0e81slFKofKPIxZ4AtW0ART4LYdboDIY-n7akjj1-N0RPvegOnOcAv4SwRS3s955LLxsBMNR4bKl9R8F4KIynEsL7LZRLFYlzeQiViZZsdqFq9mG2lDKixqWn3XK5gcp09vCWxbmXzLa2IV_KBcaz-0jmXoKEiVoBsqpOEYbP4nIsGcdh9Xb0QpsydrxDd2PcUIqP74J3upn6rkKLTp1gLdXv-Q6ITW1p7KW9uKPalmcWlJ8AKnoJ8f9PI9mXB2SuMtF898HB1S7S"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-lg md:p-xl space-y-xl max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-h2 text-h2 text-primary">Inventory Management</h2>
+<p class="font-body-md text-body-md text-outline">Manage and track your rescued food listings in real-time.</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-2 px-md py-sm rounded-lg border-[1.5px] border-primary text-primary font-label-md hover:bg-emerald-50 transition-all">
+<span class="material-symbols-outlined" data-icon="file_download">file_download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Dashboard Stats Bento -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<div class="bg-white p-lg rounded-xl soft-shadow border border-zinc-100">
+<div class="flex items-center gap-sm mb-sm">
+<span class="p-xs bg-emerald-50 text-primary rounded-lg material-symbols-outlined" data-icon="check_circle">check_circle</span>
+<span class="text-caption font-label-md text-outline uppercase tracking-wider">Active Listings</span>
+</div>
+<p class="text-h2 font-h2 text-on-surface">12</p>
+</div>
+<div class="bg-white p-lg rounded-xl soft-shadow border border-zinc-100">
+<div class="flex items-center gap-sm mb-sm">
+<span class="p-xs bg-orange-50 text-secondary-container text-on-secondary-container rounded-lg material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="text-caption font-label-md text-outline uppercase tracking-wider">Total Rescued</span>
+</div>
+<p class="text-h2 font-h2 text-on-surface">348</p>
+</div>
+<div class="bg-white p-lg rounded-xl soft-shadow border border-zinc-100">
+<div class="flex items-center gap-sm mb-sm">
+<span class="p-xs bg-blue-50 text-blue-600 rounded-lg material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-caption font-label-md text-outline uppercase tracking-wider">Revenue Saved</span>
+</div>
+<p class="text-h2 font-h2 text-on-surface">$1,240</p>
+</div>
+<div class="bg-white p-lg rounded-xl soft-shadow border border-zinc-100">
+<div class="flex items-center gap-sm mb-sm">
+<span class="p-xs bg-red-50 text-error rounded-lg material-symbols-outlined" data-icon="timer_off">timer_off</span>
+<span class="text-caption font-label-md text-outline uppercase tracking-wider">Waste Avoided</span>
+</div>
+<p class="text-h2 font-h2 text-on-surface">84kg</p>
+</div>
+</div>
+<!-- Inventory Table Container -->
+<div class="bg-white rounded-xl soft-shadow border border-zinc-100 overflow-hidden">
+<div class="p-lg border-b border-zinc-100 flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="flex gap-sm">
+<button class="px-md py-sm bg-emerald-50 text-primary font-label-md rounded-lg">All Items</button>
+<button class="px-md py-sm text-outline font-label-md hover:bg-zinc-50 rounded-lg">Active</button>
+<button class="px-md py-sm text-outline font-label-md hover:bg-zinc-50 rounded-lg">Expired</button>
+</div>
+<div class="flex items-center gap-sm">
+<span class="text-caption text-outline">Sort by:</span>
+<select class="border-none bg-surface-container-low rounded-lg text-sm font-label-md focus:ring-0">
+<option>Latest Added</option>
+<option>Expiry Date</option>
+<option>Price: Low to High</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest text-outline font-label-md uppercase text-[11px] tracking-widest border-b border-zinc-100">
+<th class="px-lg py-md">Item Details</th>
+<th class="px-lg py-md">Status</th>
+<th class="px-lg py-md">Quantity</th>
+<th class="px-lg py-md">Price</th>
+<th class="px-lg py-md text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-zinc-100">
+<!-- Row 1 -->
+<tr class="hover:bg-zinc-50/50 transition-colors">
+<td class="px-lg py-lg">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-zinc-100 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A warm, overhead shot of golden-brown Artisan Sourdough bread with a crispy crust and flour dusting, resting on a rustic wooden cutting board. The scene is bathed in soft, morning sunlight, creating a high-end, artisanal feel. The color palette emphasizes warm oranges, creams, and natural wood tones, fitting the brand's premium yet accessible neighborhood kitchen aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaoFQWYR3PoL9AK2KjJAa27xB8Y4vmslgNHHgBl4hHu1VC3JZNx7psd-pT0dn1wMustxSX80W0uiWDTvkVmF4rV8TA7lDAprZgwB34P5TMFfsCNbmTk_vq1DTtJudqTNxPj3Y_dLTCPVj_dMPB05QjGEYu1Vd8cMuXvla6ZujAN0LLai678W6I65s22swJwthRzBo6daR3W63oa_46j8IKThA32AIp_zzgBYE6_aITe4VMiQfMyhB7O2D4yZE4EEgoAHWia2OLJCDo"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Artisan Sourdough Bread</p>
+<p class="text-caption text-outline">Fresh baked daily, organic wheat</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-lg">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary-fixed text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="check" data-weight="fill">check</span>
+                                        Active
+                                    </span>
+</td>
+<td class="px-lg py-lg">
+<p class="font-label-md text-on-surface">8 loaves</p>
+<p class="text-caption text-secondary">Expires in 4h</p>
+</td>
+<td class="px-lg py-lg">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">$3.50</span>
+<span class="text-xs text-outline line-through">$8.00</span>
+</div>
+</td>
+<td class="px-lg py-lg text-right">
+<button class="p-2 text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-zinc-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-zinc-50/50 transition-colors">
+<td class="px-lg py-lg">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-zinc-100 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="An assortment of colorful, flaky French pastries including croissants and danishes in a premium cardboard box. The lighting is bright and airy, highlighting the delicate textures and vibrant fruit toppings. The background is a clean, minimalist kitchen setting with soft neutral tones, reinforcing an eco-friendly and high-quality food rescue atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAMmpNhXeNtGO9SRaDAOA0VwSE9WoRH48FCQsYXTGwhYhCAtlDPVgvigSC4-HfSV7APdbT18xFJWeWJ_5W--DXISHUQHXe3DJ8tUF_ioqtF1AKp5n6rgJaqWMLNICYnyPURu12j-rtxR0qIHtVShm8JOiYilL5BYSnYj1OSQXsxJJnxQP7RDXJhqhzpFamZPPY_fp3r3RaN4P1drh9SKVpTNJ5phIDyBXN6dIAJaprI6OzYRdld9y9rreSY8Ij8V026sWqlxvHK7jw"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Morning Pastry Box</p>
+<p class="text-caption text-outline">Mixed croissants &amp; danishes (6pc)</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-lg">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-container text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="volunteer_activism" data-weight="fill">volunteer_activism</span>
+                                        Rescued
+                                    </span>
+</td>
+<td class="px-lg py-lg">
+<p class="font-label-md text-on-surface">0 boxes</p>
+<p class="text-caption text-primary">Fully Claimed</p>
+</td>
+<td class="px-lg py-lg">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">$12.00</span>
+<span class="text-xs text-outline line-through">$24.00</span>
+</div>
+</td>
+<td class="px-lg py-lg text-right">
+<button class="px-4 py-2 bg-emerald-50 text-primary font-label-md rounded-lg text-xs hover:bg-primary hover:text-on-primary transition-all">
+                                        Relist Items
+                                    </button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-zinc-50/50 transition-colors">
+<td class="px-lg py-lg">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-zinc-100 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A rustic display of freshly baked muffins with visible blueberry and chocolate chips. The image features high-key, warm lighting that emphasizes the moist texture of the pastries. The setting is a cozy, neighborhood bakery shop with a focus on natural ingredients and community vibes, using a soft palette of deep greens and creamy whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXqdbKwf9d49FQz8Q7XDRfzrqsdP0LKsHVobriDozMSu1YbOGPW1soksYHevRjLTdXCJC4opKysNN1mfkxCo1xYuWFtk9kxKDi0zKKFTpQhejlLP3xNdYe1x0clgOYKigkkZYo0gbhcawh2wkwILL6Dyx76xjhRsYfElbGq1NVEfHCMZjxUjdNdiseRjATGT3zwQVOckbiEXzEuZxB1G6_5tEbJmsepj3wBdPowieMUl7OGanh75zUQyEbcxEErS6wBYhobiIVo-ev"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Assorted Muffin Set</p>
+<p class="text-caption text-outline">Gluten-free options included</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-lg">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-error-container text-on-error-container text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="timer_off">timer_off</span>
+                                        Expired
+                                    </span>
+</td>
+<td class="px-lg py-lg">
+<p class="font-label-md text-on-surface">4 sets</p>
+<p class="text-caption text-error">Ended 2h ago</p>
+</td>
+<td class="px-lg py-lg">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">$5.00</span>
+<span class="text-xs text-outline line-through">$15.00</span>
+</div>
+</td>
+<td class="px-lg py-lg text-right">
+<button class="p-2 text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<button class="p-2 text-zinc-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-lg flex items-center justify-between border-t border-zinc-100 bg-surface-container-lowest">
+<p class="text-caption text-outline">Showing 1 to 3 of 42 items</p>
+<div class="flex gap-xs">
+<button class="p-2 rounded-lg border border-zinc-100 text-outline hover:bg-zinc-50 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 rounded-lg text-outline hover:bg-zinc-50 font-bold">2</button>
+<button class="w-10 h-10 rounded-lg text-outline hover:bg-zinc-50 font-bold">3</button>
+<button class="p-2 rounded-lg border border-zinc-100 text-outline hover:bg-zinc-50">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Promotion / Action Banner -->
+<div class="relative overflow-hidden rounded-xl bg-emerald-900 text-white p-xl flex flex-col md:flex-row items-center justify-between gap-xl">
+<div class="relative z-10 space-y-sm max-w-lg text-center md:text-left">
+<h3 class="font-h3 text-h3">Ready to save more food?</h3>
+<p class="font-body-md text-on-primary-container opacity-90">Maximize your impact by bundling similar items into "Surprise Bags". Partners who use bundles see a 40% faster rescue rate.</p>
+</div>
+<button class="relative z-10 px-xl py-lg bg-secondary text-white font-bold rounded-lg interactive-shadow transition-all whitespace-nowrap active:scale-95">
+                    Create Surprise Bag
+                </button>
+<!-- Atmospheric Background Elements -->
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-emerald-800 rounded-full blur-3xl opacity-50"></div>
+<div class="absolute -bottom-8 -left-8 w-32 h-32 bg-emerald-500 rounded-full blur-3xl opacity-20"></div>
+</div>
+</div>
+</main>
+<!-- Micro-interaction JS -->
+<script>
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', function(e) {
+                const circle = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size/2;
+                const y = e.clientY - rect.top - size/2;
+                
+                circle.style.width = circle.style.height = `${size}px`;
+                circle.style.left = `${x}px`;
+                circle.style.top = `${y}px`;
+                circle.classList.add('absolute', 'bg-white/20', 'rounded-full', 'scale-0', 'animate-ping', 'pointer-events-none');
+                
+                this.classList.add('relative', 'overflow-hidden');
+                this.appendChild(circle);
+                
+                setTimeout(() => circle.remove(), 600);
+            });
+        });
+    </script>
+</body></html>

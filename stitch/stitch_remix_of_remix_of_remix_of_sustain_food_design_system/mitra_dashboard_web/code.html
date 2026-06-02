@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RescueEat | Partner Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;800;900&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#0f5238",
+                      "surface-tint": "#2c694e",
+                      "secondary-container": "#ffab69",
+                      "surface-dim": "#d9dadb",
+                      "inverse-on-surface": "#f0f1f2",
+                      "tertiary-fixed": "#ffdf96",
+                      "surface-container-highest": "#e1e3e4",
+                      "on-tertiary-fixed-variant": "#5a4400",
+                      "on-primary-container": "#a8e7c5",
+                      "background": "#f8f9fa",
+                      "surface-container-low": "#f3f4f5",
+                      "on-background": "#191c1d",
+                      "inverse-primary": "#95d4b3",
+                      "tertiary": "#5a4400",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed-dim": "#ffb780",
+                      "surface-variant": "#e1e3e4",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#0e5138",
+                      "tertiary-fixed-dim": "#e7c268",
+                      "on-secondary-fixed": "#2f1400",
+                      "surface-container-high": "#e7e8e9",
+                      "on-secondary-container": "#783d01",
+                      "outline": "#707973",
+                      "surface-bright": "#f8f9fa",
+                      "secondary-fixed": "#ffdcc4",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#002114",
+                      "on-tertiary-fixed": "#251a00",
+                      "surface-container": "#edeeef",
+                      "secondary": "#8e4e14",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#2d6a4f",
+                      "on-secondary-fixed-variant": "#6f3800",
+                      "tertiary-container": "#775b06",
+                      "surface": "#f8f9fa",
+                      "primary-fixed-dim": "#95d4b3",
+                      "on-surface-variant": "#404943",
+                      "on-surface": "#191c1d",
+                      "on-tertiary-container": "#fcd579",
+                      "primary-fixed": "#b1f0ce",
+                      "outline-variant": "#bfc9c1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "16px",
+                      "lg": "24px",
+                      "xxl": "48px",
+                      "xs": "4px",
+                      "xxxl": "64px",
+                      "xl": "32px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "label-md": ["Be Vietnam Pro"],
+                      "caption": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "h3": ["Epilogue"],
+                      "body-lg": ["Be Vietnam Pro"],
+                      "h2": ["Epilogue"],
+                      "h1": ["Epilogue"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-gradient {
+            background: linear-gradient(180deg, rgba(15, 82, 56, 0.1) 0%, rgba(15, 82, 56, 0) 100%);
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-6 h-16 w-full bg-white dark:bg-zinc-950 shadow-sm dark:shadow-none font-epilogue border-b border-zinc-100 dark:border-zinc-800">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-emerald-800 dark:text-emerald-400">RescueEat</span>
+<div class="hidden md:flex items-center ml-8 gap-6">
+<span class="text-emerald-700 dark:text-emerald-400 font-semibold cursor-pointer">Dashboard</span>
+<span class="text-zinc-500 dark:text-zinc-400 hover:bg-emerald-50 dark:hover:bg-zinc-900 transition-colors duration-200 px-3 py-1 rounded cursor-pointer">Marketplace</span>
+<span class="text-zinc-500 dark:text-zinc-400 hover:bg-emerald-50 dark:hover:bg-zinc-900 transition-colors duration-200 px-3 py-1 rounded cursor-pointer">Reports</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Search orders..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-emerald-50 transition-colors relative">
+<span class="material-symbols-outlined text-emerald-800" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary-container rounded-full"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-emerald-50 transition-colors">
+<span class="material-symbols-outlined text-emerald-800" data-icon="help_outline">help_outline</span>
+</button>
+<div class="flex items-center ml-2 border-l border-zinc-200 pl-4">
+<img class="w-8 h-8 rounded-full border border-primary-fixed" data-alt="A clean, minimalist profile photograph of a professional restaurant manager smiling warmly. The image has soft, high-key studio lighting with a neutral gray background that emphasizes a modern, light-mode design aesthetic. The manager is wearing a professional dark green chef's coat, reflecting the brand's primary color palette and high-end service standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASX7SfYp6w_TWjPKQvidaj6eV0zleTLuAV85zeQgE9Hy0FjxSc9nPDO29uc4ij2SM5E25qxvuFPw_CYT-W6gg-2sRvmKuZiXeDkzGaJ-SwbirUutJECm-Vg1CD1G8D1YGvD_3MOP9A5jTyhvQ1307Ub4C9GHvFMrwmKu-Mr7hSi38oETGRd_Ca5FrYI-DQvBMMKxUzUcrXllvMycYVkg0PScLLTCXdoYTkGe3W60Ihe89gmimCY_olGclRQr6RUoSPeDKArRgfm1_S"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-16 bottom-0 z-50 hidden md:flex flex-col p-4 gap-2 h-screen w-64 border-r border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-950 font-epilogue text-sm">
+<div class="mb-6 px-2">
+<p class="text-lg font-black text-emerald-800 dark:text-emerald-400">RescueEat Admin</p>
+<p class="text-xs text-zinc-500">Food Waste Reduction Hub</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 font-bold transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span> Inventory
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span> Analytics
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span> History
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span> Verification
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span> Users
+                </a>
+</nav>
+<div class="mt-auto pb-20 space-y-1">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary py-3 rounded-lg font-bold shadow-md hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                    Add New Listing
+                </button>
+<div class="pt-4 mt-4 border-t border-zinc-100">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 hover:bg-zinc-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span> Settings
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-error hover:bg-error-container/20 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span> Logout
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 p-6 bg-background min-h-screen">
+<div class="max-w-[1200px] mx-auto">
+<!-- Welcome Section -->
+<header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-h1 text-h1 text-on-background">Welcome back, Green Bistro</h1>
+<p class="text-body-lg text-outline mt-2">Here's how your food rescue efforts are performing today.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-outline-variant rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                            Oct 24 - Oct 30
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+                            Export Report
+                        </button>
+</div>
+</header>
+<!-- Key Performance Tiles -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="bg-white p-6 rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)] border border-white hover:shadow-md transition-shadow group">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-primary text-label-md bg-primary-fixed/20 px-2 py-1 rounded">+12.5%</span>
+</div>
+<p class="text-outline font-label-md mb-1">Today's Revenue</p>
+<h2 class="text-h2 font-h2 text-on-background">$1,284.50</h2>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)] border border-white hover:shadow-md transition-shadow group">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-secondary-container/10 rounded-full flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<span class="text-secondary text-label-md bg-secondary-fixed/20 px-2 py-1 rounded">+5 items</span>
+</div>
+<p class="text-outline font-label-md mb-1">Items Rescued Today</p>
+<h2 class="text-h2 font-h2 text-on-background">42 Items</h2>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)] border border-white hover:shadow-md transition-shadow group">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-tertiary-fixed/30 rounded-full flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">inventory</span>
+</div>
+<span class="text-label-md text-outline">8 expiring soon</span>
+</div>
+<p class="text-outline font-label-md mb-1">Active Listings</p>
+<h2 class="text-h2 font-h2 text-on-background">18 Listings</h2>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Main Chart Section -->
+<section class="lg:col-span-2 bg-white p-6 rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)]">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-h3 text-h3">Sales Trends</h3>
+<p class="text-caption text-outline">Revenue performance over the last 7 days</p>
+</div>
+<select class="bg-surface-container-low border-none rounded-lg font-label-md text-sm px-4 py-2 ring-0 focus:ring-1 focus:ring-primary">
+<option>This Week</option>
+<option>Last Month</option>
+</select>
+</div>
+<div class="h-[300px] w-full relative">
+<!-- Placeholder for Sales Trend Chart -->
+<div class="absolute inset-0 flex items-end justify-between px-4 pb-8">
+<div class="w-full h-[60%] chart-gradient border-t-2 border-primary relative flex items-end justify-around rounded-t-lg">
+<div class="w-1 h-32 bg-primary/20 rounded-full"></div>
+<div class="w-1 h-40 bg-primary/20 rounded-full"></div>
+<div class="w-1 h-28 bg-primary/20 rounded-full"></div>
+<div class="w-1 h-48 bg-primary/20 rounded-full"></div>
+<div class="w-1 h-36 bg-primary/20 rounded-full"></div>
+<div class="w-1 h-52 bg-primary/20 rounded-full"></div>
+<div class="w-1 h-44 bg-primary/20 rounded-full"></div>
+</div>
+</div>
+<!-- Mock Data Points -->
+<div class="absolute inset-x-0 bottom-0 flex justify-between px-6 text-caption text-outline">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+</section>
+<!-- Urgent Items Sidebar -->
+<section class="bg-white p-6 rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)]">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-h3 text-h3">Urgent Items</h3>
+<span class="text-caption text-error font-bold px-2 py-0.5 bg-error-container/20 rounded">Action Required</span>
+</div>
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="w-14 h-14 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A macro photograph of freshly baked sourdough bread loaves with a crispy golden-brown crust, dusted with flour. The background is a soft-focus artisanal bakery kitchen with warm lighting that highlights the textures of the bread. The style is warm minimalism, using earthy tones that align with the RescueEat food rescue mission." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzVyoXnnub8iREvc5O507BCqCui3kk-uThCfO7KUsouEJgEOKghcD2bhFcDNH_iojyErqCFuhpKDDbCP_yQ7EPlA9Z0IvijRnS3-UtqYa6zgtR6uj_YQzvQw63VnV5_q-OD3eUYF4hIY2pr2qzBlCNgvjGD0DeFtrvPOTrO8UaQiintuulGQEpobdTiNOA8L2U_2IsJvbicG5O0Cj_nJ0QmCCVmdteA8A-uu58whM_i25T3GA1fAsz9UZJK7kpI9Kcx-6tEDILdDwj"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-on-background truncate">Artisan Sourdough</p>
+<p class="text-caption text-secondary font-bold">Expires in 45m</p>
+</div>
+<button class="p-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="w-14 h-14 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A vibrant, fresh garden salad bowl featuring various greens, sliced radishes, and cherry tomatoes, beautifully arranged in a clean white ceramic bowl. The lighting is bright and naturalistic, suggesting a fresh, high-quality food product. The palette is dominated by lush greens and pops of red, fitting perfectly into a clean, modern UI for sustainable food management." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhbsvg0N3NeBUQM6mkZy57iPvC2Umb-xNWxRSfAdd_fjTQSCcxOO-MilYXqytWnGTSMvA5liGcfxTCh1NFuxyL_yAQw2kPYdCiunUyRYA_5zgygl_QZJY2jPbq74WJO48RkrCHLLY7I9ixIljhQkAbFMg5SLPLZP5weCaiVFKw5Fpw-LZwJ-Zl5tGzE6M-ZUkB3mogOwEnQueVB7d0aupFvyhEpP2oJuM58QshVTQfMXxqcYO5tn4W4_nRL94lls3rQkSWQ_hzJHg2"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-on-background truncate">Quinoa Salad Bowl</p>
+<p class="text-caption text-secondary font-bold">Expires in 1h 20m</p>
+</div>
+<button class="p-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="w-14 h-14 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A collection of assorted organic fruits including oranges, apples, and pears arranged in a natural woven basket. The setting is a bright, modern kitchen counter with soft morning light creating gentle shadows. The imagery conveys freshness and reliability, supporting the platform's focus on premium but accessible food rescue services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0FspFb5z54F_JG_9zJikMB-m2HnNURs67LDRkP8JGZud-yziuIwNb4EsHia6anY4QkrU3Sd899VuQZks_zAXBgQk2hS8Q_eArrGoPOi6JAXDzrFUbWIbHSz6mmPa0MhTBCcAm-9SIZzazlb-ty4O_W4WlI-oz2THIMRk0SBaFGmYMG9JAUFFtFptrPptWWQEHia_eAeBTpwWwJbEf2xg0iSt2QTlRRaowk4aYBD-lNZlZRKLZCIPf5e4q2I5cjgzVw2WaQOsivnH0"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-on-background truncate">Organic Fruit Bag</p>
+<p class="text-caption text-secondary font-bold">Expires in 2h 05m</p>
+</div>
+<button class="p-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-primary font-label-md hover:bg-primary/5 rounded-lg transition-all">View All Inventory</button>
+</section>
+</div>
+<!-- Recent Activity Table-like List -->
+<section class="mt-8 bg-white p-6 rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)]">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-h3 text-h3">Recent Rescues</h3>
+<button class="text-primary text-label-md font-semibold hover:underline">View History</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-surface-container-low text-outline text-caption uppercase tracking-wider">
+<th class="py-4 px-2">Order ID</th>
+<th class="py-4 px-2">Item Name</th>
+<th class="py-4 px-2">Customer</th>
+<th class="py-4 px-2">Time</th>
+<th class="py-4 px-2">Status</th>
+<th class="py-4 px-2 text-right">Revenue</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-2 font-mono text-xs">#RE-9281</td>
+<td class="py-4 px-2 font-label-md">Double Pastry Pack</td>
+<td class="py-4 px-2 text-sm">Alex Rivera</td>
+<td class="py-4 px-2 text-sm">12:45 PM</td>
+<td class="py-4 px-2">
+<span class="px-2 py-1 bg-emerald-50 text-primary text-xs font-bold rounded-full flex items-center w-fit gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                            Picked Up
+                                        </span>
+</td>
+<td class="py-4 px-2 text-right font-bold">$12.00</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-2 font-mono text-xs">#RE-9279</td>
+<td class="py-4 px-2 font-label-md">Daily Veggie Box</td>
+<td class="py-4 px-2 text-sm">Sarah Jenkins</td>
+<td class="py-4 px-2 text-sm">11:30 AM</td>
+<td class="py-4 px-2">
+<span class="px-2 py-1 bg-emerald-50 text-primary text-xs font-bold rounded-full flex items-center w-fit gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                            Picked Up
+                                        </span>
+</td>
+<td class="py-4 px-2 text-right font-bold">$18.50</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-2 font-mono text-xs">#RE-9275</td>
+<td class="py-4 px-2 font-label-md">Gourmet Sandwich Bag</td>
+<td class="py-4 px-2 text-sm">Marcus Chen</td>
+<td class="py-4 px-2 text-sm">10:15 AM</td>
+<td class="py-4 px-2">
+<span class="px-2 py-1 bg-secondary-fixed/30 text-secondary text-xs font-bold rounded-full flex items-center w-fit gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                                            Waiting
+                                        </span>
+</td>
+<td class="py-4 px-2 text-right font-bold">$9.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Mobile Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 h-16 bg-white/80 glass-nav border-t border-zinc-100 md:hidden flex items-center justify-around z-50 px-6">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-zinc-400" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px]">Items</span>
+</a>
+<div class="-mt-8">
+<button class="w-12 h-12 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-zinc-400" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-[10px]">Stats</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-zinc-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple Micro-interaction for hover effects on dashboard tiles
+        const tiles = document.querySelectorAll('.group');
+        tiles.forEach(tile => {
+            tile.addEventListener('mouseenter', () => {
+                tile.style.transform = 'translateY(-4px)';
+            });
+            tile.addEventListener('mouseleave', () => {
+                tile.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#783d01",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#edeeef",
+                    "surface": "#f8f9fa",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-tertiary-fixed-variant": "#5a4400",
+                    "on-primary-fixed-variant": "#0e5138",
+                    "outline-variant": "#bfc9c1",
+                    "on-tertiary-container": "#fcd579",
+                    "on-primary-container": "#a8e7c5",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#95d4b3",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffdcc4",
+                    "secondary-container": "#ffab69",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "primary-fixed-dim": "#95d4b3",
+                    "tertiary-fixed-dim": "#e7c268",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-error": "#ffffff",
+                    "background": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-primary-fixed": "#002114",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-surface-variant": "#404943",
+                    "on-surface": "#191c1d",
+                    "primary": "#0f5238",
+                    "outline": "#707973",
+                    "surface-container-high": "#e7e8e9",
+                    "tertiary-container": "#775b06",
+                    "primary-container": "#2d6a4f",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#2c694e",
+                    "primary-fixed": "#b1f0ce",
+                    "surface-bright": "#f8f9fa",
+                    "secondary": "#8e4e14",
+                    "on-tertiary-fixed": "#251a00",
+                    "surface-container-low": "#f3f4f5",
+                    "tertiary-fixed": "#ffdf96",
+                    "tertiary": "#5a4400",
+                    "error": "#ba1a1a",
+                    "on-background": "#191c1d",
+                    "surface-dim": "#d9dadb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "xxxl": "64px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "caption": ["Be Vietnam Pro"],
+                    "h2": ["Epilogue"],
+                    "label-md": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "h3": ["Epilogue"],
+                    "h1": ["Epilogue"]
+            },
+            "fontSize": {
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .chart-bar {
+            transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-[0px_4px_20px_rgba(29,53,87,0.05)]">
+<div class="flex justify-between items-center px-md h-xxl w-full max-w-full">
+<div class="flex items-center gap-sm">
+<button class="p-xs hover:bg-surface-container-low transition-colors active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">menu</span>
+</button>
+<h1 class="font-h3 text-h3 text-primary dark:text-primary-fixed-dim">FoodRescue</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A close-up professional headshot of a friendly-looking middle-aged chef with a warm smile, wearing a clean white chef's coat. The background is a soft-focus professional kitchen with warm lighting and polished steel surfaces. The overall aesthetic is clean, professional, and trustworthy, perfectly fitting a high-end food service application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI5UjPI84_2hSXJCcpEgrnEU-CMeJnzzlQ6hII272BEz4DFMAafw825bM3ubrTDNodBROMxSeyTfK8S7LiG6cGgVJxywvWhnMS4NCDPUNRJN1_uZOQRskXZJBzpjrwxHRo_oVill6G6oDu0OcJ3Wafue9osN-ouL_q-tC2UdZB0LKTei8t0bTzVvPB6beb36HKSC9ADc-rLrx2U2_XsCiafHXXEnD-CJlkScRa1ezZvs4TO7TMEdvK_yjQojBNbne1sTKa1v_Th_Zu"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-[64px] pb-[80px] min-h-screen px-md">
+<!-- Dashboard Welcome -->
+<section class="mt-lg mb-xl">
+<h2 class="font-h2 text-h2 text-on-surface">Hello, Mitra!</h2>
+<p class="font-body-md text-on-surface-variant">Here is your impact summary for this week.</p>
+</section>
+<!-- KPI Bento Grid -->
+<section class="grid grid-cols-2 gap-md mb-xl">
+<!-- Total Saved KPI -->
+<div class="col-span-1 glass-card p-md rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)] border border-outline-variant/20">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary-container">eco</span>
+<span class="text-primary font-label-md text-label-md bg-primary-fixed px-sm py-xs rounded-full">+12%</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-sm">Total Saved</p>
+<p class="font-h3 text-h3 text-on-surface">124 kg</p>
+</div>
+</div>
+<!-- Revenue KPI -->
+<div class="col-span-1 glass-card p-md rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)] border border-outline-variant/20">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-secondary">payments</span>
+<span class="text-secondary font-label-md text-label-md bg-secondary-fixed px-sm py-xs rounded-full">+8%</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-sm">Revenue</p>
+<p class="font-h3 text-h3 text-on-surface">$2.4k</p>
+</div>
+</div>
+<!-- Full Width Hero KPI -->
+<div class="col-span-2 relative overflow-hidden rounded-xl bg-primary-container p-md text-on-primary-container shadow-[0px_8px_24px_rgba(45, 106, 79, 0.15)]">
+<div class="relative z-10">
+<h3 class="font-h3 text-h3">Community Impact</h3>
+<p class="font-body-md opacity-90 mt-xs">You've helped feed 450+ families this month.</p>
+<div class="mt-md flex items-center gap-sm">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a smiling woman in a community kitchen, warm natural lighting, sustainable food rescue theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPtUKoabsV42H3M6yILIlaj_mpMaJysD3wwbBAAXAgk3nQ96mKrEj2kNbLeAxzE6UbwRHgR62C9cMlOJdqyQ1t-tIFQ9DWA0VOrC8zRRG3cRgl2qX1-UmtjKWUmTuKX36C15X3n7FPXhijp2lNUPGTv8ui2vjJlbb6NED0Kbrhc05BQPsVI9VwNXmemPrX_KNesQydczASBN5GdCQPYIHdBCKQ1Tez_Sq6JsoVqvmt8HzI1W7Ugk71afrvqv_2yNupTAPRA7CtpHb6"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a volunteer smiling, outdoors in a city garden environment, vibrant natural tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkuxVpK_uKZTovYGN33ekW7WJABkRxswQ9PgMS9hGXyQbipTG9-0jdAW1Sh91iM8ilwGF2hGo0P--PQVoo8JIzv1YV_eQfBQ4uH1UlJbWNyT1HGcGSD5oavGh4VWw1KKDCZuEFjz1Ucgr39twAR6G10QfNfMuQbwwFIfvO4plHtL8zSk1bG65W9aczJaJpmRXuagQC_oNdG2rVITRtdr5F2iFEZtzQek5m4iKZFU43kDmcu5d_46s8CuJy_U5fiYMg1XLe9s8fPC-T"/>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold text-caption">+4k</div>
+</div>
+<span class="text-caption font-caption">Join the leaderboard</span>
+</div>
+</div>
+<!-- Abstract Background Pattern -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-on-primary-container/10 rounded-full -mr-md -mt-md"></div>
+</div>
+</section>
+<!-- Weekly Progress Chart -->
+<section class="mb-xl">
+<div class="flex items-center justify-between mb-md px-xs">
+<h3 class="font-h3 text-h3 text-on-surface">Weekly Progress</h3>
+<button class="text-primary font-label-md text-label-md flex items-center gap-xs">
+                    This Week <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)] border border-outline-variant/10">
+<div class="flex items-end justify-between h-40 gap-sm px-xs">
+<!-- Monday -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-surface-container-high rounded-t-lg" style="height: 40%;"></div>
+<span class="font-caption text-caption text-on-surface-variant">M</span>
+</div>
+<!-- Tuesday -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-surface-container-high rounded-t-lg" style="height: 65%;"></div>
+<span class="font-caption text-caption text-on-surface-variant">T</span>
+</div>
+<!-- Wednesday -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-primary rounded-t-lg" style="height: 85%;"></div>
+<span class="font-caption text-caption text-on-surface">W</span>
+</div>
+<!-- Thursday -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-surface-container-high rounded-t-lg" style="height: 50%;"></div>
+<span class="font-caption text-caption text-on-surface-variant">T</span>
+</div>
+<!-- Friday -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-surface-container-high rounded-t-lg" style="height: 75%;"></div>
+<span class="font-caption text-caption text-on-surface-variant">F</span>
+</div>
+<!-- Saturday -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-surface-container-high rounded-t-lg" style="height: 95%;"></div>
+<span class="font-caption text-caption text-on-surface-variant">S</span>
+</div>
+<!-- Sunday -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-surface-container-high rounded-t-lg" style="height: 30%;"></div>
+<span class="font-caption text-caption text-on-surface-variant">S</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Active Tasks Quick Look -->
+<section class="mb-xl">
+<div class="flex items-center justify-between mb-md px-xs">
+<h3 class="font-h3 text-h3 text-on-surface">Upcoming Rescue</h3>
+<a class="text-primary font-label-md text-label-md" href="#">View All</a>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex items-center gap-md p-md bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)]">
+<div class="w-12 h-12 bg-secondary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">local_shipping</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Central Bakery Pickup</h4>
+<p class="font-caption text-caption text-on-surface-variant">Today, 06:00 PM • 12.4kg estimated</p>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<div class="flex items-center gap-md p-md bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)] opacity-60">
+<div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed-variant">store</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Fresh Mart Drop-off</h4>
+<p class="font-caption text-caption text-on-surface-variant">Tomorrow, 09:00 AM • 8.0kg estimated</p>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-md w-14 h-14 bg-primary text-on-primary rounded-full shadow-[0px_12px_32px_rgba(0,0,0,0.1)] flex items-center justify-center active:scale-90 transition-all z-40">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-sm py-sm pb-safe bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md z-50 border-t border-outline-variant/30 shadow-[0px_-4px_20px_rgba(29,53,87,0.05)]">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-xs hover:bg-primary-container/10 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-md text-label-md">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">volunteer_activism</span>
+<span class="font-label-md text-label-md">Impact</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple animation trigger for chart bars on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach(bar => {
+                const targetHeight = bar.style.height;
+                bar.style.height = '0px';
+                setTimeout(() => {
+                    bar.style.height = targetHeight;
+                }, 100);
+            });
+        });
+
+        // Toggle mobile menu (logic placeholder)
+        const menuBtn = document.querySelector('button span[data-icon="menu"]');
+        if(menuBtn) {
+            menuBtn.closest('button').addEventListener('click', () => {
+                console.log('Open Navigation Drawer');
+            });
+        }
+    </script>
+</body></html>

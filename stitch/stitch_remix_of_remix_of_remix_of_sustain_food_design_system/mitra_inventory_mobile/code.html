@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>FoodRescue Mitra - Inventory Management</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&amp;family=Be+Vietnam+Pro:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#783d01",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#edeeef",
+                    "surface": "#f8f9fa",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-tertiary-fixed-variant": "#5a4400",
+                    "on-primary-fixed-variant": "#0e5138",
+                    "outline-variant": "#bfc9c1",
+                    "on-tertiary-container": "#fcd579",
+                    "on-primary-container": "#a8e7c5",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#95d4b3",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffdcc4",
+                    "secondary-container": "#ffab69",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "primary-fixed-dim": "#95d4b3",
+                    "tertiary-fixed-dim": "#e7c268",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-error": "#ffffff",
+                    "background": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-primary-fixed": "#002114",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-surface-variant": "#404943",
+                    "on-surface": "#191c1d",
+                    "primary": "#0f5238",
+                    "outline": "#707973",
+                    "surface-container-high": "#e7e8e9",
+                    "tertiary-container": "#775b06",
+                    "primary-container": "#2d6a4f",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#2c694e",
+                    "primary-fixed": "#b1f0ce",
+                    "surface-bright": "#f8f9fa",
+                    "secondary": "#8e4e14",
+                    "on-tertiary-fixed": "#251a00",
+                    "surface-container-low": "#f3f4f5",
+                    "tertiary-fixed": "#ffdf96",
+                    "tertiary": "#5a4400",
+                    "error": "#ba1a1a",
+                    "on-background": "#191c1d",
+                    "surface-dim": "#d9dadb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "xxxl": "64px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "caption": ["Be Vietnam Pro"],
+                    "h2": ["Epilogue"],
+                    "label-md": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "h3": ["Epilogue"],
+                    "h1": ["Epilogue"]
+            },
+            "fontSize": {
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            background-color: #f8f9fa;
+        }
+        .custom-scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .inventory-card {
+            box-shadow: 0px 4px 20px rgba(29, 53, 87, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-[0px_4px_20px_rgba(29,53,87,0.05)] flex justify-between items-center px-md h-xxl">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<h1 class="font-h3 text-h3 text-primary">FoodRescue</h1>
+</div>
+<div class="w-sm h-sm rounded-full bg-surface-container-high overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional studio portrait of a friendly kitchen manager in a clean white uniform. The lighting is soft and warm, reflecting a high-end culinary environment. The background is a blurred, modern restaurant kitchen with hints of stainless steel and warm wooden accents, maintaining the brand's premium yet accessible neighborhood feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNfYm_nGdAVAtt9j4nzAy02I3auWiAYxF_znYdQHSEemP0PPY0tN4Uq-BSsruA4ZmKPatD09QuL0TDGBP-2f59SZAq9ZnKauq-s8sG6SYwRPNFhPREzGaUjLEVfyIlplMNBzPu-ahb46G-iiD4L0E1xgTq5WoM3lWX39Ec1hcdO-hBJLnSdQAgoLzcNPmUEKT9YD-pEXvcLUvVYP7o-9SSSVLznZc_hV-S9awbTVvmoUmRVEAlT8ZV2NtFKmedkGK1eqcEz9gB24Bk"/>
+</div>
+</header>
+<main class="pt-xxl pb-xxxl min-h-screen px-md">
+<!-- Dashboard Header -->
+<section class="py-lg">
+<h2 class="font-h2 text-h2 text-on-surface">Inventory</h2>
+<p class="font-body-md text-on-surface-variant">Manage your rescue listings</p>
+</section>
+<!-- Quick Stats Bento -->
+<div class="grid grid-cols-2 gap-md mb-lg">
+<div class="bg-primary-fixed text-on-primary-fixed p-md rounded-xl shadow-sm">
+<span class="material-symbols-outlined mb-xs" data-icon="inventory_2">inventory_2</span>
+<p class="font-label-md text-label-md">Total Items</p>
+<p class="font-h3 text-h3">24</p>
+</div>
+<div class="bg-secondary-fixed text-on-secondary-fixed p-md rounded-xl shadow-sm">
+<span class="material-symbols-outlined mb-xs" data-icon="timer">timer</span>
+<p class="font-label-md text-label-md">Expiring Soon</p>
+<p class="font-h3 text-h3">5</p>
+</div>
+</div>
+<!-- Inventory List -->
+<div class="flex flex-col gap-md">
+<!-- Food Card 1 -->
+<div class="inventory-card bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 transition-transform active:scale-[0.98]">
+<div class="relative h-40">
+<img alt="Artisan Bread" class="w-full h-full object-cover" data-alt="Close-up shot of several freshly baked artisan sourdough bread loaves arranged on a rustic wooden table. The lighting is golden and warm, reminiscent of a local bakery at sunrise. The textures of the crispy crust and flour dusting are highly detailed, evoking a sense of organic, high-quality food rescue items in a sustainable neighborhood setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPST8Unnjfe4Tk0iA2fAKEqDnq6GAAEhXp-uJBWwh_OqlZy-Nc688yeEEF_Gqvz4TBAjtn73FjJ-X0Q2ZfgZaUzlvNqVTVQRMALN9aFAqIwHLSVc8VQe7VXIQ17mU6S6Vvep_ZcgMJre4PT9bjwpbCYDz15504p5RxuYjcmHtB5jZBWlkVJqws8JwpjeuKLkdbHqXWKzbJJ_3GLcg9FvutaHnwB2jSG08wuJ6ffZag41b38_dsWosaQk-Acs0E3e7iLTHXSxv2koFr"/>
+<div class="absolute top-sm right-sm bg-primary-container/90 text-on-primary-container px-sm py-xs rounded-full font-label-md text-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Active
+                    </div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h3 text-[18px]">Assorted Artisan Loaves</h3>
+<span class="text-secondary font-label-md text-label-md bg-secondary-fixed px-sm py-[2px] rounded-lg">5 left</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+                        Save by 8:00 PM today
+                    </p>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm rounded-lg active:scale-95 transition-transform">
+                        Manage Listing
+                    </button>
+</div>
+</div>
+<!-- Food Card 2 -->
+<div class="inventory-card bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 transition-transform active:scale-[0.98]">
+<div class="relative h-40">
+<img alt="Vegetable Medley" class="w-full h-full object-cover" data-alt="A vibrant and colorful overhead shot of a fresh seasonal vegetable crate containing bell peppers, snap peas, and organic carrots. The composition is clean and minimalist, set against a bright white background to emphasize a fresh and healthy aesthetic. The lighting is high-key and soft, creating a modern, eco-friendly visual language for a premium food rescue platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnlv0u-JuQoee15pnvroGkQ3-O_tlCYT7IEt-TCXbvj5F1YqvcXPmfcnkr47IlORHjBa1b5sV4pMhqCrg39uC5NbBGMmQ2JMh6m13goRYHZV0rUOfRxZkvVgQxL735TbifTPhWG2ONOT3tE8sDXJl9VLdfEYQlilowE8eT1LKPS0H1v9MhWMYbWhV0vrJO-G89IJ5JL5VQYBUkGJfyd_uxiJ5t8tdzEZpOEhdwVYxMDN1xWM20xdlB3nVDYlPQH5brxpoA3wrfVig0"/>
+<div class="absolute top-sm right-sm bg-on-secondary-container text-secondary-fixed px-sm py-xs rounded-full font-label-md text-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="error" style="font-variation-settings: 'FILL' 1;">error</span>
+                        Low Stock
+                    </div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h3 text-[18px]">Seasonal Vegetable Box</h3>
+<span class="text-secondary font-label-md text-label-md bg-secondary-fixed px-sm py-[2px] rounded-lg">2 left</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+                        Save by 6:30 PM today
+                    </p>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm rounded-lg active:scale-95 transition-transform">
+                        Manage Listing
+                    </button>
+</div>
+</div>
+<!-- Food Card 3 (Draft) -->
+<div class="inventory-card bg-surface-container-low opacity-80 rounded-xl overflow-hidden border border-dashed border-outline-variant transition-transform active:scale-[0.98]">
+<div class="p-md flex items-center gap-md">
+<div class="w-20 h-20 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-[32px]" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-md text-label-md text-on-surface-variant">Unfinished Draft</h3>
+<p class="font-caption text-caption text-outline">Organic Fruit Basket</p>
+<button class="mt-sm text-primary font-label-md text-label-md flex items-center gap-xs">
+                            Continue <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-md w-14 h-14 bg-primary-container text-on-primary-container rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md z-50 rounded-t-xl border-t border-outline-variant/30 shadow-[0px_-4px_20px_rgba(29,53,87,0.05)] flex justify-around items-center px-sm py-sm pb-safe h-20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 p-xs rounded-lg transition-all duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-xs hover:bg-primary-container/10 p-xs rounded-lg transition-all duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 p-xs rounded-lg transition-all duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/10 p-xs rounded-lg transition-all duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for managing vibration feedback on button presses
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', () => {
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(5);
+                }
+            });
+        });
+
+        // Simple visibility observer for scroll-based shadow on header
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

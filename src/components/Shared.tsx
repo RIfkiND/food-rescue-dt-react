@@ -21,7 +21,7 @@ import {
   ShoppingCart
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { cn } from '@/src/lib/utils';
+import { cn } from '@/lib/utils';
 
 export const TopAppBar = () => {
   return (
@@ -64,9 +64,9 @@ export const BottomNavBar = () => {
   const navItems = [
     { icon: Search, label: 'Explore', path: '/explore' },
     { icon: MapPin, label: 'Map', path: '/map' },
-    { icon: Store, label: 'Mitra', path: '/mitra' },
-    { icon: History, label: 'Activity', path: '#' },
-    { icon: User, label: 'Profile', path: '#' },
+    { icon: Store, label: 'Mitra', path: '/dashboard/mitra' },
+    { icon: History, label: 'Activity', path: '/dashboard/profile/orders' },
+    { icon: User, label: 'Profile', path: '/dashboard/profile' },
   ];
 
   return (

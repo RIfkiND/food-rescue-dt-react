@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#783d01",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#edeeef",
+                    "surface": "#f8f9fa",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-tertiary-fixed-variant": "#5a4400",
+                    "on-primary-fixed-variant": "#0e5138",
+                    "outline-variant": "#bfc9c1",
+                    "on-tertiary-container": "#fcd579",
+                    "on-primary-container": "#a8e7c5",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#95d4b3",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffdcc4",
+                    "secondary-container": "#ffab69",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "primary-fixed-dim": "#95d4b3",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-error": "#ffffff",
+                    "background": "#f8f9fa",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-primary-fixed": "#002114",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-surface-variant": "#404943",
+                    "on-surface": "#191c1d",
+                    "primary": "#0f5238",
+                    "outline": "#707973",
+                    "surface-container-high": "#e7e8e9",
+                    "tertiary-container": "#775b06",
+                    "primary-container": "#2d6a4f",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#2c694e",
+                    "primary-fixed": "#b1f0ce",
+                    "surface-bright": "#f8f9fa",
+                    "secondary": "#8e4e14",
+                    "on-tertiary-fixed": "#251a00",
+                    "surface-container-low": "#f3f4f5",
+                    "tertiary-fixed": "#ffdf96",
+                    "tertiary": "#5a4400",
+                    "error": "#ba1a1a",
+                    "on-background": "#191c1d",
+                    "surface-dim": "#d9dadb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "xxxl": "64px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "caption": ["Be Vietnam Pro"],
+                    "h2": ["Epilogue"],
+                    "label-md": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "h3": ["Epilogue"],
+                    "h1": ["Epilogue"]
+            },
+            "fontSize": {
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tap-highlight-transparent { -webkit-tap-highlight-color: transparent; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-surface antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<button class="lg:hidden p-1 -ml-1 active:scale-95 transition-transform" onclick="window.history.back()">
+<span class="material-symbols-outlined text-emerald-800" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-h3 text-h3 text-emerald-800 dark:text-emerald-400 font-bold">Food Rescue</h1>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a class="text-gray-600 dark:text-slate-400 hover:text-emerald-600 font-label-md transition-colors" href="#">Donate</a>
+<a class="text-gray-600 dark:text-slate-400 hover:text-emerald-600 font-label-md transition-colors" href="#">Explore</a>
+<a class="text-gray-600 dark:text-slate-400 hover:text-emerald-600 font-label-md transition-colors" href="#">Impact</a>
+<a class="text-gray-600 dark:text-slate-400 hover:text-emerald-600 font-label-md transition-colors" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-gray-50 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-gray-600" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-emerald-100">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional young man with a friendly smile, photographed in soft, natural morning light that emphasizes clean skin and clear eyes. The background is a blurred modern minimalist office setting with hints of indoor plants and white furniture, maintaining a high-clarity and optimistic brand atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALhgc0m4ajHDIOfLF6xVEwYgADcZ8zUY1aK5SZ3rTXNMiwIffPpLpgfnanGPwe4eiq7_c1SK_sO5juJ_MAyZdzIvQjeaTn2umAoUjTnBIWyLRAgIY4NJljd5aoIcLK3f9hvegEwJsVd9di2QGXnudWsdGHLPiF3AjetWa6atUEiAcS4Hbz7ctrhiZRSY_asxs-YB3c5m627Cul0SKpxgkRfc2gFKv4f1Ic35iaMen3pXwfyqOY1yk2Et8Mu383x6HuxTzYysYUeLdb"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 max-w-lg mx-auto min-h-screen">
+<!-- Profile Summary Section -->
+<section class="mb-lg">
+<div class="bg-white rounded-xl p-md shadow-[0px_4px_20px_rgba(29,53,87,0.05)] border border-gray-100">
+<div class="flex items-center gap-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-container p-0.5">
+<img alt="User profile" class="w-full h-full object-cover rounded-full" data-alt="A high-quality studio portrait of a warm and approachable individual looking directly at the camera. The lighting is bright and even, casting soft shadows to create a tactical soft-touch feel. The background is a solid, light-neutral color that aligns with the minimalist and eco-friendly brand identity of the platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3DzsvhMlic644OwSO0BnOaPb2k8oo2t6BxeLl0Z7RtXrgwPyXXSo0QSTIgpt4g7NYz-BsbloLBFPM_U0Rz3tXUAhQ6hxVriUVVijEYilb9hPkBxP3l3MBz4TgAFG2mTJ-kDkSjoR-qcykPwPIH6ymY4E6cxMa-v_NjD-GUl_NEh4K8tWZF4MysWv-cKivmemb_i7qIFcXsBxa6uHHyPX2ZrCTrlccLNHNIN0B5qakHaQBg9gDmxMOUx2R46Hi8x5_Ufa6vmrmaBux"/>
+</div>
+<div>
+<h2 class="font-h3 text-h3 text-on-surface">Alex Rivers</h2>
+<div class="flex items-center gap-sm mt-xs">
+<span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full text-caption font-label-md">Local Hero</span>
+<span class="text-on-surface-variant text-caption font-label-md">Level 4</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-sm mt-md pt-md border-t border-gray-100">
+<div class="text-center">
+<p class="font-label-md text-primary">24</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Orders</p>
+</div>
+<div class="text-center border-x border-gray-100">
+<p class="font-label-md text-primary">12kg</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Saved</p>
+</div>
+<div class="text-center">
+<p class="font-label-md text-primary">Gold</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Badge</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Order Tabs -->
+<div class="flex gap-sm mb-md overflow-x-auto hide-scrollbar pb-1">
+<button class="whitespace-nowrap px-md py-sm bg-primary-container text-on-primary-container rounded-full font-label-md shadow-sm">All Orders</button>
+<button class="whitespace-nowrap px-md py-sm bg-white text-on-surface-variant rounded-full font-label-md border border-gray-100">In Progress</button>
+<button class="whitespace-nowrap px-md py-sm bg-white text-on-surface-variant rounded-full font-label-md border border-gray-100">Completed</button>
+<button class="whitespace-nowrap px-md py-sm bg-white text-on-surface-variant rounded-full font-label-md border border-gray-100">Cancelled</button>
+</div>
+<!-- Orders List -->
+<div class="space-y-md">
+<!-- Order Card 1: Completed -->
+<div class="bg-white rounded-xl p-md shadow-[0px_4px_20px_rgba(29,53,87,0.05)] border border-gray-100 transition-all active:scale-[0.98]">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Partner logo" class="w-full h-full object-cover" data-alt="A professional flat-lay photograph of a fresh artisan bakery logo on a textured white paper background. Surrounding the logo are subtle hints of flour and a sprig of rosemary, emphasizing a handcrafted, premium food quality. The lighting is warm and natural, creating a welcoming and sustainable neighborhood kitchen atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOUZxWh8985cRL5dM_7DFidylXvG46vbMJZjiH_QV5AYbwaDI3g_ls3Z8jjjZ1zsosjFOorRka55PcAAXGRW6v6n3qNzy0ml0oGgCalbMhhh9VfJxkNyYiaRDBJnPblWbVruTczuUnemelGaatpwCBhSoTT2vcRTNWd8hcoRgokIoFVqiHtYpngQG7GlqT6xZH35n7FrnRLVHqoV-WRMEeqZsMPgzOOGzkR30HHAb1Bp2RmUzUmnSdrtd9NLAH8_zjWGAf32g_LHr3"/>
+</div>
+<div>
+<h3 class="font-label-md text-on-surface">The Artisan Bakery</h3>
+<p class="text-caption text-on-surface-variant">Yesterday, 6:45 PM</p>
+</div>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded text-[10px] font-label-md">COMPLETED</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-caption text-on-surface-variant">2x Surprise Pastry Box</p>
+<p class="font-h3 text-primary text-lg">$14.50</p>
+</div>
+<button class="text-primary font-label-md text-caption flex items-center gap-1 active:opacity-70">
+                        View Details
+                        <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Order Card 2: In Progress -->
+<div class="bg-white rounded-xl p-md shadow-[0px_8px_24px_rgba(45,106,79,0.15)] border-2 border-primary-container/20 transition-all active:scale-[0.98]">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Partner logo" class="w-full h-full object-cover" data-alt="A high-contrast macro shot of vibrant green organic vegetables arranged neatly in a wooden crate. The lighting is bright and crisp, highlighting the freshness of the produce. This image represents a local grocery store's commitment to sustainability and quality, using a naturalistic color palette of deep greens and earthy browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh9rATkenU30Y7QDZGiY-8jZyX_7IlIC81AGAz38Rk6PHTSuVT3EN913Qi-G0KqeSkHVwOauOvdMzFlR-9UTDJ2LoC-vt9DEZ4bQBt04LtP_4lAjMMXUpThAwJy_q9yV7RELosCjI5JklczOuup4m403GgV0CAlY41e_aNUEyO_5rxTYHY0lUqQbZvV29QYeBNkG28YgHQLJutw45OPV7D1_PsyUuTXWo1MsGX_zEeca6rZwdQoapxoNZCs2_I2aIwQXjVS6uN_UV0"/>
+</div>
+<div>
+<h3 class="font-label-md text-on-surface">Green Grocer Organic</h3>
+<p class="text-caption text-on-surface-variant">Today, 2:15 PM</p>
+</div>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-[10px] font-label-md flex items-center gap-1">
+<span class="w-1 h-1 bg-on-secondary-container rounded-full animate-pulse"></span>
+                        READY FOR PICKUP
+                    </span>
+</div>
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-caption text-on-surface-variant">1x Seasonal Veggie Bag</p>
+<p class="font-h3 text-primary text-lg">$8.00</p>
+</div>
+<button class="bg-primary text-white px-md py-sm rounded-lg font-label-md text-caption shadow-sm active:scale-95 transition-transform">
+                        Show Code
+                    </button>
+</div>
+</div>
+<!-- Order Card 3: Completed -->
+<div class="bg-white rounded-xl p-md shadow-[0px_4px_20px_rgba(29,53,87,0.05)] border border-gray-100 transition-all active:scale-[0.98]">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Partner logo" class="w-full h-full object-cover" data-alt="A minimalist overhead shot of a premium wood-fired pizza on a dark slate background. The image uses high-end lighting to accentuate the textures of the charred crust and fresh mozzarella. The color palette is warm and appetizing, focusing on rich oranges and deep blacks to signify a high-quality culinary experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9VNcZzM6rwwVH4gjGKFudS7N6AlBT4gbw2VX9Z9OX49ahjU7EWGk_W0EBab6sbd2O9hXbZiCEo_B8_DTgFSsgBs39qYLPNSzGbDuomsjUcGOUaiBy-_ii9fh1N7QmA6yYLBbfjdIiTJ9lk6COMjWgiA17iPPmHh8RjJswGC3L33g3JIhgV0kI334CH-gmY8CJqMOCyLEsYShhx8rujf-1Ey5kYq7l4MH1VIeVSVDj9M4HwHpPw4_YLUsRBUXzikxLHw9sv9kp2xuE"/>
+</div>
+<div>
+<h3 class="font-label-md text-on-surface">Mamma's Pizzeria</h3>
+<p class="text-caption text-on-surface-variant">Oct 12, 9:00 PM</p>
+</div>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded text-[10px] font-label-md">COMPLETED</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-caption text-on-surface-variant">1x Large Margherita (Rescue)</p>
+<p class="font-h3 text-primary text-lg">$10.00</p>
+</div>
+<button class="text-primary font-label-md text-caption flex items-center gap-1 active:opacity-70">
+                        View Details
+                        <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Order Card 4: Cancelled -->
+<div class="bg-white/60 rounded-xl p-md shadow-[0px_4px_20px_rgba(29,53,87,0.05)] border border-gray-100 transition-all opacity-80">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container grayscale">
+<img alt="Partner logo" class="w-full h-full object-cover" data-alt="A clean, minimalist photograph of a modern coffee cup and a saucer on a light marble tabletop. The lighting is soft and diffused, creating a serene and sophisticated atmosphere. The image focuses on simplicity and high clarity, utilizing a palette of whites and soft grays to represent a premium cafe experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0HU_B6wSbvIUpTxcJMZwy8hWjyQV-cQ49iYQyUICVmw6Xwg4zFCP-HBaCoMTcZ0CSNE3Mbu6q1QejSKGUg-1HbnGg9c_xzacpjRfVOKLPQOfFQygpuXgMzhWGqBJxlLJV-P6el57YNipzjmNUymXRG8mC2aJdq_6PZzskwuwXw4XNfu1eFFxeUWsN1uuvGE5XXzdMbwPfqmVsVarLj99F5sY5BOz7l5fMTUseNQe-ZIr22XPX4fgquFmPn-bWl-gD6Cjoy9O_zXXi"/>
+</div>
+<div>
+<h3 class="font-label-md text-on-surface">Central Roast Coffee</h3>
+<p class="text-caption text-on-surface-variant">Oct 10, 8:30 AM</p>
+</div>
+</div>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded text-[10px] font-label-md">CANCELLED</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-caption text-on-surface-variant">1x Breakfast Pastry Bag</p>
+<p class="font-h3 text-on-surface-variant text-lg line-through">$5.50</p>
+</div>
+<button class="text-on-surface-variant font-label-md text-caption flex items-center gap-1 active:opacity-70">
+                        View Details
+                        <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Help Section -->
+<div class="mt-xl text-center">
+<p class="text-caption text-on-surface-variant mb-sm">Something wrong with an order?</p>
+<button class="w-full border-1.5 border-primary text-primary font-label-md py-md rounded-xl hover:bg-primary-fixed/20 active:scale-[0.98] transition-all">
+                Contact Help Center
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe pt-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-gray-100 dark:border-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-slate-500 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-epilogue text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-emerald-700 dark:text-emerald-400 relative after:content-[''] after:w-1 after:h-1 after:bg-emerald-700 after:rounded-full after:mt-1 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="reorder" style="font-variation-settings: 'FILL' 1;">reorder</span>
+<span class="font-epilogue text-[10px] font-medium">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-slate-500 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="font-epilogue text-[10px] font-medium">Impact</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-slate-500 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-epilogue text-[10px] font-medium">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for order cards
+        document.querySelectorAll('.bg-white.rounded-xl').forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.classList.add('shadow-md');
+            });
+            card.addEventListener('touchend', function() {
+                this.classList.remove('shadow-md');
+            });
+        });
+
+        // Tab selection logic
+        const tabs = document.querySelectorAll('.overflow-x-auto button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+                    t.classList.add('bg-white', 'text-on-surface-variant', 'border', 'border-gray-100');
+                });
+                tab.classList.remove('bg-white', 'text-on-surface-variant', 'border', 'border-gray-100');
+                tab.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+            });
+        });
+    </script>
+</body></html>
