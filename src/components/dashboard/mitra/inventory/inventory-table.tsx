@@ -57,7 +57,7 @@ export function InventoryTable() {
         </div>
       </div>
       
-      <div className="overflow-x-auto">
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[800px]">
           <thead>
             <tr className="bg-surface-container-lowest text-outline font-label-md uppercase text-[11px] tracking-widest border-b border-zinc-100">
@@ -145,6 +145,46 @@ export function InventoryTable() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="md:hidden flex flex-col divide-y divide-zinc-100">
+        {inventoryItems.map((item) => (
+          <div key={item.id} className="p-4 flex flex-col gap-3">
+            <div className="flex gap-3">
+              <div className="w-16 h-16 rounded-lg bg-zinc-100 overflow-hidden flex-shrink-0">
+                <img src={item.imgSrc} alt={item.name} className="w-full h-full object-cover" />
+              </div>
+              <div className="flex-1">
+                <div className="flex justify-between items-start mb-1">
+                  <h3 className="font-label-md text-on-surface font-semibold text-sm line-clamp-1">{item.name}</h3>
+                  {item.status === 'Active' && (
+                    <span className="shrink-0 px-2 py-0.5 rounded text-[10px] bg-emerald-100 text-primary font-bold uppercase">Active</span>
+                  )}
+                  {item.status === 'Rescued' && (
+                    <span className="shrink-0 px-2 py-0.5 rounded text-[10px] bg-orange-100 text-[#783d01] font-bold uppercase">Rescued</span>
+                  )}
+                  {item.status === 'Expired' && (
+                    <span className="shrink-0 px-2 py-0.5 rounded text-[10px] bg-red-100 text-error font-bold uppercase">Expired</span>
+                  )}
+                </div>
+                <p className="text-caption text-outline text-xs line-clamp-1">{item.subtext}</p>
+                <div className="flex justify-between items-end mt-2">
+                  <div className="flex flex-col">
+                    <span className="font-label-md text-on-surface font-bold text-sm">{item.price} <span className="text-xs text-outline line-through font-normal">{item.oldPrice}</span></span>
+                    <span className="text-caption text-xs font-semibold mt-0.5">{item.quantity}</span>
+                  </div>
+                  {item.status === 'Rescued' ? (
+                    <button className="px-3 py-1.5 bg-emerald-50 text-primary rounded-lg text-[11px] font-bold">Relist</button>
+                  ) : item.status === 'Expired' ? (
+                    <button className="p-1.5 text-zinc-400 hover:text-error rounded-md"><Trash2 className="w-4 h-4" /></button>
+                  ) : (
+                    <button className="p-1.5 text-zinc-400 hover:text-primary rounded-md"><Edit2 className="w-4 h-4" /></button>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
       
       <div className="p-6 flex items-center justify-between border-t border-zinc-100 bg-surface-container-lowest">

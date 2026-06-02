@@ -1,4 +1,4 @@
-import { Search, Bell, HelpCircle, ShoppingCart, History, Settings, LogOut, ChevronDown, User } from 'lucide-react'
+import { Search, Bell, HelpCircle, ShoppingCart, History, Settings, LogOut, ChevronDown, User, LayoutDashboard } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useState, useRef, useEffect } from 'react'
 
@@ -53,12 +53,11 @@ export function TopNav({ variant = 'mitra', className }: TopNavProps) {
     )}>
       <div className={cn("flex items-center w-full max-w-[1200px] mx-auto", isProfile ? "justify-between" : "justify-between")}>
         <div className="flex items-center gap-4">
-          <Link to={isProfile ? "/dashboard/profile" : "/dashboard/mitra"} className="text-xl font-bold tracking-tight text-emerald-800 dark:text-emerald-400">
+          <Link to={isProfile ? "/dashboard/profile" : "/dashboard/mitra"} className="text-xl font-bold tracking-tight text-emerald-800 dark:text-emerald-400 lg:hidden">
             {isProfile ? "Food Rescue" : "RescueEat"}
           </Link>
-          <div className="hidden md:flex items-center gap-3 ml-2">
-            <span className="text-zinc-300 dark:text-zinc-600">/</span>
-            <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-1 rounded-full">
+          <div className="hidden lg:flex items-center gap-3">
+            <span className="text-lg font-bold text-on-surface dark:text-white tracking-tight">
               {activeRouteName}
             </span>
           </div>
@@ -113,6 +112,14 @@ export function TopNav({ variant = 'mitra', className }: TopNavProps) {
                       {isProfile ? "Local Hero" : "The Green Bakery"}
                     </p>
                   </div>
+                  <Link 
+                    to="/dashboard/mitra"
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <LayoutDashboard className="w-4 h-4" />
+                    Dashboard
+                  </Link>
                   <Link 
                     to= "/dashboard/profile"
                     className="flex items-center gap-2 px-4 py-2 text-sm text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"

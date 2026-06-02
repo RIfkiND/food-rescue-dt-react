@@ -15,7 +15,7 @@ export function RecentRescues() {
         <h3 className="font-h3 text-2xl">Recent Rescues</h3>
         <button className="text-primary text-label-md font-semibold hover:underline">View History</button>
       </div>
-      <div className="overflow-x-auto">
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b border-surface-container-low text-outline text-caption uppercase tracking-wider">
@@ -52,6 +52,38 @@ export function RecentRescues() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile view */}
+      <div className="md:hidden flex flex-col gap-4">
+        {rescues.map((rescue) => (
+          <div key={rescue.id} className="p-4 border border-surface-container-low rounded-lg bg-surface-container-lowest flex flex-col gap-3">
+            <div className="flex justify-between items-start">
+              <div className="flex flex-col gap-1">
+                <span className="font-mono text-xs text-outline">{rescue.id}</span>
+                <span className="font-label-md text-sm">{rescue.name}</span>
+              </div>
+              {rescue.status === 'Picked Up' ? (
+                <span className="px-2 py-1 bg-emerald-50 text-primary text-[10px] font-bold rounded-full uppercase flex items-center gap-1 shrink-0">
+                  <CheckCircle2 className="w-3 h-3 fill-primary text-emerald-50" />
+                  Picked Up
+                </span>
+              ) : (
+                <span className="px-2 py-1 bg-secondary-fixed/30 text-secondary text-[10px] font-bold rounded-full uppercase flex items-center gap-1 shrink-0">
+                  <Clock className="w-3 h-3" />
+                  Waiting
+                </span>
+              )}
+            </div>
+            <div className="flex justify-between items-end border-t border-surface-container-low pt-3 mt-1">
+              <div className="flex flex-col">
+                <span className="text-xs text-on-surface font-semibold">{rescue.customer}</span>
+                <span className="text-xs text-outline mt-0.5">{rescue.time}</span>
+              </div>
+              <span className="font-bold text-primary">{rescue.revenue}</span>
+            </div>
+          </div>
+        ))}
       </div>
     </motion.section>
   )

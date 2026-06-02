@@ -10,7 +10,8 @@
   --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
   --font-epilogue: "Epilogue", sans-serif;
 
-  --color-primary: #0f5238;
+  --color-primary: #386939;
+  --color-on-primary: #ffffff;
   --color-primary-container: #2d6a4f;
   --color-on-primary-container: #a8e7c5;
   --color-primary-fixed: #b1f0ce;
@@ -20,12 +21,14 @@
   --color-secondary-container: #ffab69;
   --color-on-secondary-container: #783d01;
   --color-secondary-fixed: #ffdcc4;
+  --color-on-secondary-fixed: #783d01;
 
   --color-tertiary: #5a4400;
   --color-tertiary-fixed: #ffdf96;
   --color-tertiary-fixed-dim: #e7c268;
 
   --color-surface: #f8f9fa;
+  --color-on-background: #191c1d;
   --color-on-surface: #191c1d;
   --color-on-surface-variant: #404943;
   --color-surface-container: #edeeef;
@@ -112,10 +115,10 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #0f5238;
+  --primary: #386939;
   --primary-foreground: #ffffff;
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary: #8e4e14;
+  --secondary-foreground: #ffffff;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
@@ -149,8 +152,8 @@
   --popover-foreground: oklch(0.985 0 0);
   --primary: #95d4b3;
   --primary-foreground: #002114;
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
+  --secondary: #ffab69;
+  --secondary-foreground: #783d01;
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);

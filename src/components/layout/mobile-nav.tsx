@@ -1,3 +1,4 @@
+import React from 'react'
 import { 
   LayoutDashboard, 
   Package, 
@@ -6,7 +7,8 @@ import {
   User,
   Home,
   List,
-  HeartHandshake
+  HeartHandshake,
+  History,
 } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { cn } from '@/lib/utils'
@@ -31,7 +33,7 @@ export function MobileNav({ variant = 'mitra' }: MobileNavProps) {
     { name: 'Home', icon: LayoutDashboard, path: '/dashboard/mitra' },
     { name: 'Items', icon: Package, path: '/dashboard/mitra/inventory' },
     { name: 'Stats', icon: LineChart, path: '/dashboard/mitra/analytics' },
-    { name: 'Profile', icon: User, path: '/dashboard/mitra/users' },
+    { name: 'History', icon: History, path: '/dashboard/mitra/history' },
   ]
 
   const links = isProfile ? profileLinks : mitraLinks
@@ -48,8 +50,8 @@ export function MobileNav({ variant = 'mitra' }: MobileNavProps) {
         // Insert the Add button in the middle for Mitra
         if (!isProfile && index === 2) {
           return (
-            <div key="add-button" className="flex items-center gap-2">
-              <div className="-mt-8 mx-2">
+            <React.Fragment key="add-button-group">
+              <div className="-mt-8 mx-2 relative z-10 flex-shrink-0">
                 <button className="w-12 h-12 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
                   <Plus className="w-6 h-6" />
                 </button>
@@ -57,14 +59,14 @@ export function MobileNav({ variant = 'mitra' }: MobileNavProps) {
               <Link 
                 to={link.path}
                 className={cn(
-                  "flex flex-col items-center gap-1", 
-                  isActive ? "text-primary" : "text-zinc-400"
+                  "flex flex-col items-center justify-center py-1", 
+                  isActive ? "text-primary gap-1" : "text-zinc-400 gap-1"
                 )}
               >
-                <link.icon className={cn("w-6 h-6", isActive && "fill-primary")} />
-                <span className={cn("text-[10px]", isActive && "font-bold")}>{link.name}</span>
+                <link.icon className="w-6 h-6" />
+                <span className={cn("font-epilogue text-[10px] mt-1", isActive ? "font-bold" : "")}>{link.name}</span>
               </Link>
-            </div>
+            </React.Fragment>
           )
         }
 
@@ -79,7 +81,7 @@ export function MobileNav({ variant = 'mitra' }: MobileNavProps) {
                 : (isActive ? "text-primary gap-1" : "text-zinc-400 gap-1")
             )}
           >
-            <link.icon className={cn(isProfile ? "w-6 h-6" : "w-6 h-6", isActive && !isProfile && "fill-primary", isActive && isProfile && "fill-emerald-700")} />
+            <link.icon className="w-6 h-6" />
             <span className={cn("font-epilogue text-[10px] mt-1", isProfile ? "font-medium" : (isActive ? "font-bold" : ""))}>{link.name}</span>
           </Link>
         )

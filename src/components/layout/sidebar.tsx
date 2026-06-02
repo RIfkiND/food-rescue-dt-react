@@ -46,10 +46,10 @@ export function Sidebar({ variant = 'mitra' }: SidebarProps) {
 
   return (
     <aside className={cn(
-      "fixed left-0 bottom-0 z-50 hidden lg:flex flex-col p-4 font-epilogue border-r transition-colors",
+      "fixed left-0 top-0 bottom-0 z-50 hidden lg:flex flex-col p-4 font-epilogue border-r transition-colors h-screen w-64",
       isProfile 
-        ? "top-20 bg-white dark:bg-slate-900 border-gray-100 dark:border-slate-800 text-sm font-medium w-64 h-[calc(100vh-80px)] space-y-2"
-        : "top-16 bg-white dark:bg-zinc-950 border-zinc-100 dark:border-zinc-800 text-sm gap-2 h-screen w-64"
+        ? "bg-white dark:bg-slate-900 border-gray-100 dark:border-slate-800 text-sm font-medium space-y-2"
+        : "bg-white dark:bg-zinc-950 border-zinc-100 dark:border-zinc-800 text-sm gap-2"
     )}>
       {isProfile ? (
         <div className="px-2 py-4 mb-4">
@@ -106,7 +106,7 @@ export function Sidebar({ variant = 'mitra' }: SidebarProps) {
         </>
       ) : (
         <div className="mt-auto pb-20 space-y-1">
-          <button className="w-full flex items-center justify-center gap-2 bg-primary text-on-primary py-3 rounded-lg font-bold shadow-md hover:scale-[1.02] active:scale-95 transition-all">
+          <button className="w-full flex items-center justify-center gap-2 bg-primary text-white py-3 rounded-lg font-bold shadow-md hover:scale-[1.02] active:scale-95 transition-all">
             <Plus className="w-5 h-5" />
             Add New Listing
           </button>
