@@ -66,7 +66,7 @@ export function TopNav({ variant = 'mitra', className }: TopNavProps) {
       <div className={cn("flex items-center w-full max-w-[1200px] mx-auto", isProfile ? "justify-between" : "justify-between")}>
         <div className="flex items-center gap-4">
           <Link to={isProfile ? "/dashboard/profile" : "/dashboard/mitra"} className="text-xl font-bold tracking-tight text-emerald-800 dark:text-emerald-400 lg:hidden">
-            {isProfile ? "Food Rescue" : "RescueEat"}
+            {isProfile ? "Food Rescue" : "Food Rescue"}
           </Link>
           <div className="hidden lg:flex items-center gap-3">
             <span className="text-lg font-bold text-on-surface dark:text-white tracking-tight">
