@@ -28,9 +28,9 @@ export function UrgentItems() {
   return (
     <section className="bg-white p-6 rounded-xl shadow-level-1 h-full">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="font-h3 text-2xl">Urgent Items</h3>
+        <h3 className="font-h3 text-2xl">Item Mendesak</h3>
         <span className="text-caption text-error font-bold px-2 py-0.5 bg-error-container/20 rounded">
-          Action Required
+          Perlu Tindakan
         </span>
       </div>
       <div className="space-y-4">
@@ -41,7 +41,7 @@ export function UrgentItems() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-label-md text-on-background truncate">{item.name}</p>
-              <p className="text-caption text-secondary font-bold">Expires in {item.expiresIn}</p>
+              <p className="text-caption text-secondary font-bold">Kedaluwarsa dalam {item.expiresIn}</p>
             </div>
             <button className="p-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
               <Edit2 className="w-5 h-5" />
@@ -50,7 +50,7 @@ export function UrgentItems() {
         ))}
       </div>
       <button className="w-full mt-6 py-2 text-primary font-label-md hover:bg-primary/5 rounded-lg transition-all">
-        View All Inventory
+        Lihat Semua Inventaris
       </button>
     </section>
   )

@@ -7,18 +7,24 @@ interface TopNavProps {
   className?: string
 }
 
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 export function TopNav({ variant = 'mitra', className }: TopNavProps) {
   const isProfile = variant === 'profile'
   const location = useLocation()
+  const navigate = useNavigate()
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const [isNotifOpen, setIsNotifOpen] = useState(false)
+  const notifRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownOpen(false)
+      }
+      if (notifRef.current && !notifRef.current.contains(event.target as Node)) {
+        setIsNotifOpen(false)
       }
     }
     document.addEventListener('mousedown', handleClickOutside)
@@ -27,17 +33,23 @@ export function TopNav({ variant = 'mitra', className }: TopNavProps) {
   
   const getActiveRouteName = () => {
     if (isProfile) {
-      if (location.pathname.includes('/orders')) return 'Orders'
-      if (location.pathname.includes('/addresses')) return 'Addresses'
-      if (location.pathname.includes('/settings')) return 'Settings'
-      return 'Profile'
+      if (location.pathname.includes('/store/edit')) return 'Edit Profil Toko'
+      if (location.pathname.includes('/store')) return 'Profil Toko'
+      if (location.pathname.includes('/addresses')) return 'Lokasi Toko'
+      if (location.pathname.includes('/wallet')) return 'Dompet & Penghasilan'
+      if (location.pathname.includes('/settings')) return 'Pengaturan'
+      return 'Profil'
     } else {
-      if (location.pathname.includes('/inventory')) return 'Inventory'
-      if (location.pathname.includes('/analytics')) return 'Analytics'
-      if (location.pathname.includes('/history')) return 'History'
-      if (location.pathname.includes('/marketplace')) return 'Marketplace'
-      if (location.pathname.includes('/reports')) return 'Reports'
-      return 'Dashboard'
+      if (location.pathname.includes('/inventory')) return 'Inventaris'
+      if (location.pathname.includes('/analytics')) return 'Analitik'
+      if (location.pathname.includes('/history')) return 'Riwayat'
+      if (location.pathname.includes('/food')) return 'Makanan Sisa'
+      if (location.pathname.includes('/coupons')) return 'Kupon'
+      if (location.pathname.includes('/new-coupon')) return 'Buat Kupon'
+      if (location.pathname.includes('/new-listing')) return 'Tambah Daftar Baru'
+      if (location.pathname.includes('/marketplace')) return 'Pasar'
+      if (location.pathname.includes('/reports')) return 'Laporan'
+      return 'Dasbor'
     }
   }
 
@@ -76,10 +88,50 @@ export function TopNav({ variant = 'mitra', className }: TopNavProps) {
           )}
           
           <div className={cn("flex items-center", isProfile ? "gap-4" : "gap-2")}>
-            <button className={cn("p-2 rounded-full transition-colors relative", isProfile ? "text-gray-500 hover:bg-gray-50 dark:hover:bg-slate-800 active:scale-95" : "hover:bg-emerald-50")}>
-              <Bell className={isProfile ? "w-6 h-6" : "w-6 h-6 text-emerald-800"} />
-              {!isProfile && <span className="absolute top-2 right-2 w-2 h-2 bg-secondary-container rounded-full"></span>}
-            </button>
+            <div className="relative" ref={notifRef}>
+              <button 
+                onClick={() => setIsNotifOpen(!isNotifOpen)}
+                className={cn("p-2 rounded-full transition-colors relative", isProfile ? "text-gray-500 hover:bg-gray-50 dark:hover:bg-slate-800 active:scale-95" : "hover:bg-emerald-50")}
+              >
+                <Bell className={isProfile ? "w-6 h-6" : "w-6 h-6 text-emerald-800"} />
+                {!isProfile && <span className="absolute top-2 right-2 w-2 h-2 bg-secondary-container rounded-full"></span>}
+              </button>
+
+              {isNotifOpen && (
+                <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-zinc-900 rounded-2xl shadow-level-3 border border-zinc-100 dark:border-zinc-800 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2">
+                  <div className="px-4 py-3 border-b border-zinc-100 dark:border-zinc-800 flex justify-between items-center bg-zinc-50 dark:bg-zinc-800/50">
+                    <span className="font-bold text-on-surface dark:text-white">Notifikasi</span>
+                    <button className="text-xs text-primary hover:underline font-medium">Tandai semua dibaca</button>
+                  </div>
+                  <div className="max-h-[300px] overflow-y-auto">
+                    <div className="p-4 border-b border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 cursor-pointer transition-colors">
+                      <div className="flex gap-3">
+                        <div className="w-2 h-2 mt-1.5 bg-primary rounded-full shrink-0"></div>
+                        <div>
+                          <p className="text-sm text-zinc-800 dark:text-zinc-200"><span className="font-bold">Pesanan Baru:</span> 3x Artisan Sourdough Loaf</p>
+                          <p className="text-xs text-zinc-500 mt-1">2 menit yang lalu</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-4 border-b border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 cursor-pointer transition-colors">
+                      <div className="flex gap-3">
+                        <div className="w-2 h-2 mt-1.5 bg-zinc-300 rounded-full shrink-0"></div>
+                        <div>
+                          <p className="text-sm text-zinc-800 dark:text-zinc-200">Makanan Anda hampir kedaluwarsa: <span className="font-medium text-amber-600">Organic Fruit Bag</span></p>
+                          <p className="text-xs text-zinc-500 mt-1">1 jam yang lalu</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-2 bg-zinc-50 dark:bg-zinc-800/50 text-center">
+                    <button className="text-sm text-zinc-600 dark:text-zinc-400 font-medium hover:text-primary transition-colors">
+                      Lihat Semua
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
             <button className={cn("p-2 rounded-full transition-colors", isProfile ? "text-gray-500 hover:bg-gray-50 dark:hover:bg-slate-800 active:scale-95" : "hover:bg-emerald-50")}>
               {isProfile ? <ShoppingCart className="w-6 h-6" /> : <HelpCircle className="w-6 h-6 text-emerald-800" />}
             </button>
@@ -147,7 +199,7 @@ export function TopNav({ variant = 'mitra', className }: TopNavProps) {
                   <div className="h-px bg-zinc-100 dark:bg-zinc-800 my-1"></div>
                   <button 
                     className="flex w-full items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                    onClick={() => setIsDropdownOpen(false)}
+                    onClick={() => { setIsDropdownOpen(false); navigate('/login'); }}
                   >
                     <LogOut className="w-4 h-4" />
                     Log out

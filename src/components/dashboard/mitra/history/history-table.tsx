@@ -11,10 +11,10 @@ const distributions = [
     iconBg: 'bg-emerald-50',
     quantity: '12.5 kg',
     timestamp: '2 mins ago',
-    status: 'Complete',
+    status: 'Selesai',
     statusIcon: CheckCheck,
     statusColor: 'text-emerald-700 bg-emerald-100',
-    revenue: '$142.00',
+    revenue: 'Rp 142.000',
     user: 'Alex R.'
   },
   {
@@ -25,10 +25,10 @@ const distributions = [
     iconBg: 'bg-orange-50',
     quantity: '8.2 kg',
     timestamp: '45 mins ago',
-    status: 'Complete',
+    status: 'Selesai',
     statusIcon: CheckCheck,
     statusColor: 'text-emerald-700 bg-emerald-100',
-    revenue: '$84.50',
+    revenue: 'Rp 84.500',
     user: 'Sarah M.'
   },
   {
@@ -39,10 +39,10 @@ const distributions = [
     iconBg: 'bg-blue-50',
     quantity: '24.0 kg',
     timestamp: '1 hour ago',
-    status: 'In Transit',
+    status: 'Dalam Perjalanan',
     statusIcon: RefreshCw,
     statusColor: 'text-blue-700 bg-blue-100',
-    revenue: '$312.00',
+    revenue: 'Rp 312.000',
     user: 'Delivery #442'
   },
   {
@@ -53,10 +53,10 @@ const distributions = [
     iconBg: 'bg-emerald-50',
     quantity: '5.0 kg',
     timestamp: '3 hours ago',
-    status: 'Complete',
+    status: 'Selesai',
     statusIcon: CheckCheck,
     statusColor: 'text-emerald-700 bg-emerald-100',
-    revenue: '$45.00',
+    revenue: 'Rp 45.000',
     user: 'John D.'
   }
 ]
@@ -70,12 +70,12 @@ export function HistoryTable() {
           <table className="w-full text-left min-w-[800px]">
             <thead className="bg-surface border-b border-zinc-100">
               <tr>
-                <th className="px-6 py-4 text-zinc-500 font-label-md text-sm font-semibold uppercase tracking-wider">Item Category</th>
-                <th className="px-6 py-4 text-zinc-500 font-label-md text-sm font-semibold uppercase tracking-wider">Quantity</th>
-                <th className="px-6 py-4 text-zinc-500 font-label-md text-sm font-semibold uppercase tracking-wider">Timestamp</th>
-                <th className="px-6 py-4 text-zinc-500 font-label-md text-sm font-semibold uppercase tracking-wider">Recipient</th>
-                <th className="px-6 py-4 text-zinc-500 font-label-md text-sm font-semibold uppercase tracking-wider">Rescue Status</th>
-                <th className="px-6 py-4 text-zinc-500 font-label-md text-right text-sm font-semibold uppercase tracking-wider">Revenue</th>
+                <th className="px-6 py-4 text-zinc-500 font-label-md text-sm font-semibold uppercase tracking-wider">Kategori Item</th>
+                <th className="px-6 py-4 text-zinc-500 font-label-md text-sm font-semibold uppercase tracking-wider">Kuantitas</th>
+                <th className="px-6 py-4 text-zinc-500 font-label-md text-sm font-semibold uppercase tracking-wider">Waktu</th>
+                <th className="px-6 py-4 text-zinc-500 font-label-md text-sm font-semibold uppercase tracking-wider">Penerima</th>
+                <th className="px-6 py-4 text-zinc-500 font-label-md text-sm font-semibold uppercase tracking-wider">Status Penyelamatan</th>
+                <th className="px-6 py-4 text-zinc-500 font-label-md text-right text-sm font-semibold uppercase tracking-wider">Pendapatan</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-50">
@@ -103,7 +103,7 @@ export function HistoryTable() {
         </div>
         
         <div className="px-6 py-4 bg-surface-container-lowest border-t border-zinc-100 flex justify-between items-center">
-          <p className="font-caption text-xs text-outline">Showing 1-4 of 128 distributions</p>
+          <p className="font-caption text-xs text-outline">Menampilkan 1-4 dari 128 distribusi</p>
           <div className="flex gap-1">
             <button className="p-1 rounded-lg border border-zinc-100 text-outline hover:bg-zinc-50 disabled:opacity-50 transition-colors" disabled>
               <ChevronLeft className="w-5 h-5" />
@@ -138,17 +138,17 @@ export function HistoryTable() {
             
             <div className="grid grid-cols-2 gap-2 mb-3 bg-zinc-50 rounded-lg p-2">
               <div>
-                <p className="text-[10px] text-zinc-500 uppercase font-semibold">Quantity</p>
+                <p className="text-[10px] text-zinc-500 uppercase font-semibold">Kuantitas</p>
                 <p className="text-sm font-medium">{item.quantity}</p>
               </div>
               <div>
-                <p className="text-[10px] text-zinc-500 uppercase font-semibold">Recipient</p>
+                <p className="text-[10px] text-zinc-500 uppercase font-semibold">Penerima</p>
                 <p className="text-sm font-medium">{item.user}</p>
               </div>
             </div>
 
             <div className="flex justify-between items-center border-t border-zinc-100 pt-3">
-              <p className="text-xs text-zinc-500 font-medium">Revenue</p>
+              <p className="text-xs text-zinc-500 font-medium">Pendapatan</p>
               <p className="text-sm font-bold text-emerald-800">{item.revenue}</p>
             </div>
           </div>

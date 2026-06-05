@@ -11,10 +11,10 @@ const distributions = [
     iconBg: 'bg-emerald-50',
     quantity: '12.5 kg',
     timestamp: '2 mins ago',
-    status: 'Complete',
+    status: 'Selesai',
     statusIcon: CheckCheck,
     statusColor: 'text-emerald-700 bg-emerald-100',
-    revenue: '$142.00'
+    revenue: 'Rp 142.000'
   },
   {
     id: 2,
@@ -24,10 +24,10 @@ const distributions = [
     iconBg: 'bg-orange-50',
     quantity: '8.2 kg',
     timestamp: '45 mins ago',
-    status: 'Complete',
+    status: 'Selesai',
     statusIcon: CheckCheck,
     statusColor: 'text-emerald-700 bg-emerald-100',
-    revenue: '$84.50'
+    revenue: 'Rp 84.500'
   },
   {
     id: 3,
@@ -37,10 +37,10 @@ const distributions = [
     iconBg: 'bg-blue-50',
     quantity: '24.0 kg',
     timestamp: '1 hour ago',
-    status: 'In Transit',
+    status: 'Dalam Perjalanan',
     statusIcon: RefreshCw,
     statusColor: 'text-blue-700 bg-blue-100',
-    revenue: '$312.00'
+    revenue: 'Rp 312.000'
   }
 ]
 
@@ -48,20 +48,20 @@ export function AnalyticsDistributions() {
   return (
     <motion.section variants={fadeUp} className="bg-white rounded-[2rem] shadow-sm border border-zinc-100 overflow-hidden mb-8">
       <div className="px-8 py-6 border-b border-zinc-100 flex justify-between items-center">
-        <h3 className="font-h3 text-[24px] font-bold text-on-surface">Latest Distributions</h3>
+        <h3 className="font-h3 text-[24px] font-bold text-on-surface">Distribusi Terbaru</h3>
         <button className="text-primary font-label-md flex items-center gap-1 hover:underline text-sm font-semibold">
-          View Full History <ArrowRight className="w-4 h-4" />
+          Lihat Riwayat Lengkap <ArrowRight className="w-4 h-4" />
         </button>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-left min-w-[800px]">
           <thead className="bg-surface">
             <tr>
-              <th className="px-8 py-4 text-zinc-500 font-label-md text-sm font-semibold">Item Category</th>
-              <th className="px-8 py-4 text-zinc-500 font-label-md text-sm font-semibold">Quantity</th>
-              <th className="px-8 py-4 text-zinc-500 font-label-md text-sm font-semibold">Timestamp</th>
-              <th className="px-8 py-4 text-zinc-500 font-label-md text-sm font-semibold">Rescue Status</th>
-              <th className="px-8 py-4 text-zinc-500 font-label-md text-right text-sm font-semibold">Revenue Recovered</th>
+              <th className="px-8 py-4 text-zinc-500 font-label-md text-sm font-semibold">Kategori Item</th>
+              <th className="px-8 py-4 text-zinc-500 font-label-md text-sm font-semibold">Kuantitas</th>
+              <th className="px-8 py-4 text-zinc-500 font-label-md text-sm font-semibold">Waktu</th>
+              <th className="px-8 py-4 text-zinc-500 font-label-md text-sm font-semibold">Status Penyelamatan</th>
+              <th className="px-8 py-4 text-zinc-500 font-label-md text-right text-sm font-semibold">Pendapatan Dipulihkan</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-zinc-50">

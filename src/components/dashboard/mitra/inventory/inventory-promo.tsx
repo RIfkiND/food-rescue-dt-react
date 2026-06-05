@@ -5,11 +5,11 @@ export function InventoryPromo() {
   return (
     <motion.div variants={fadeUp} className="relative overflow-hidden rounded-xl bg-emerald-900 text-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mt-8">
       <div className="relative z-10 space-y-2 max-w-lg text-center md:text-left">
-        <h3 className="font-h3 text-[24px] font-bold">Ready to save more food?</h3>
-        <p className="font-body-md text-emerald-100 opacity-90">Maximize your impact by bundling similar items into "Surprise Bags". Partners who use bundles see a 40% faster rescue rate.</p>
+        <h3 className="font-h3 text-[24px] font-bold">Siap menyelamatkan lebih banyak makanan?</h3>
+        <p className="font-body-md text-emerald-100 opacity-90">Maksimalkan dampak Anda dengan menggabungkan item serupa ke dalam "Tas Kejutan". Mitra yang menggunakan paket ini melihat tingkat penyelamatan 40% lebih cepat.</p>
       </div>
       <button className="relative z-10 px-8 py-4 bg-[#8e4e14] hover:bg-[#783d01] text-white font-bold rounded-lg shadow-lg transition-all whitespace-nowrap active:scale-95">
-        Create Surprise Bag
+        Buat Tas Kejutan
       </button>
       
       {/* Atmospheric Background Elements */}

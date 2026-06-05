@@ -12,13 +12,13 @@ import { fadeUp } from '@/lib/motion'
 import { ChevronDown } from 'lucide-react'
 
 const data = [
-  { name: 'Mon', revenue: 400 },
-  { name: 'Tue', revenue: 600 },
-  { name: 'Wed', revenue: 450 },
-  { name: 'Thu', revenue: 800 },
-  { name: 'Fri', revenue: 550 },
-  { name: 'Sat', revenue: 900 },
-  { name: 'Sun', revenue: 750 },
+  { name: 'Sen', revenue: 400 },
+  { name: 'Sel', revenue: 600 },
+  { name: 'Rab', revenue: 450 },
+  { name: 'Kam', revenue: 800 },
+  { name: 'Jum', revenue: 550 },
+  { name: 'Sab', revenue: 900 },
+  { name: 'Min', revenue: 750 },
 ]
 
 export function SalesTrendsChart() {
@@ -26,13 +26,13 @@ export function SalesTrendsChart() {
     <motion.section variants={fadeUp} className="lg:col-span-2 bg-white p-6 rounded-xl shadow-level-1">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h3 className="font-h3 text-2xl">Sales Trends</h3>
-          <p className="text-caption text-outline">Revenue performance over the last 7 days</p>
+          <h3 className="font-h3 text-2xl">Tren Penjualan</h3>
+          <p className="text-caption text-outline">Kinerja pendapatan selama 7 hari terakhir</p>
         </div>
         <div className="relative">
           <select className="appearance-none bg-surface-container-low border-none rounded-lg font-label-md text-sm pl-4 pr-10 py-2 ring-0 focus:ring-1 focus:ring-primary outline-none">
-            <option>This Week</option>
-            <option>Last Month</option>
+            <option>Minggu Ini</option>
+            <option>Bulan Lalu</option>
           </select>
           <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-outline pointer-events-none" />
         </div>
@@ -57,7 +57,7 @@ export function SalesTrendsChart() {
               axisLine={false} 
               tickLine={false} 
               tick={{ fill: '#707973', fontSize: 12 }} 
-              tickFormatter={(value) => `$${value}`} 
+              tickFormatter={(value) => `Rp ${value}`} 
             />
             <Tooltip 
               contentStyle={{ 

@@ -10,16 +10,16 @@ import { Badges } from '@/components/dashboard/profile/badges'
 import { SavedAddresses } from '@/components/dashboard/profile/saved-addresses'
 
 export default function ProfileDashboard() {
-  const [greeting, setGreeting] = useState("Welcome back, Alex. Your contributions are making a real difference today.")
+  const [greeting, setGreeting] = useState("Selamat datang kembali, Alex. Kontribusi Anda membawa perubahan besar hari ini.")
 
   useEffect(() => {
     const hour = new Date().getHours()
     if (hour < 12) {
-      setGreeting("Good morning, Alex. Ready to rescue some food today?")
+      setGreeting("Selamat pagi, Alex. Siap menyelamatkan makanan hari ini?")
     } else if (hour < 18) {
-      setGreeting("Good afternoon, Alex. Your contributions are making a real difference today.")
+      setGreeting("Selamat siang, Alex. Kontribusi Anda membawa perubahan besar hari ini.")
     } else {
-      setGreeting("Good evening, Alex. Thank you for your continued support for the community.")
+      setGreeting("Selamat malam, Alex. Terima kasih atas dukungan Anda untuk komunitas.")
     }
   }, [])
 
@@ -36,7 +36,7 @@ export default function ProfileDashboard() {
             className="space-y-8 w-full"
           >
             <motion.header variants={fadeUp}>
-              <h1 className="font-h1 text-primary text-[40px]">Profile</h1>
+              <h1 className="font-h1 text-primary text-[40px]">Profil</h1>
               <p className="text-body-lg text-gray-500 mt-2">{greeting}</p>
             </motion.header>
 

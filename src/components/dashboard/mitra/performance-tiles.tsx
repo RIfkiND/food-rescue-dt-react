@@ -12,8 +12,8 @@ export function PerformanceTiles() {
           </div>
           <span className="text-primary text-label-md bg-primary-fixed/20 px-2 py-1 rounded">+12.5%</span>
         </div>
-        <p className="text-outline font-label-md mb-1">Today's Revenue</p>
-        <h2 className="font-h2 text-[32px] text-on-background">$1,284.50</h2>
+        <p className="text-outline font-label-md mb-1">Pendapatan Hari Ini</p>
+        <h2 className="font-h2 text-[32px] text-on-background">Rp 1.284.500</h2>
       </div>
 
       <div className="bg-white p-6 rounded-xl shadow-level-1 border border-white hover:shadow-md transition-shadow group">
@@ -21,10 +21,10 @@ export function PerformanceTiles() {
           <div className="w-12 h-12 bg-secondary-container/10 rounded-full flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
             <Leaf className="w-6 h-6" />
           </div>
-          <span className="text-secondary text-label-md bg-secondary-fixed/20 px-2 py-1 rounded">+5 items</span>
+          <span className="text-secondary text-label-md bg-secondary-fixed/20 px-2 py-1 rounded">+5 item</span>
         </div>
-        <p className="text-outline font-label-md mb-1">Items Rescued Today</p>
-        <h2 className="font-h2 text-[32px] text-on-background">42 Items</h2>
+        <p className="text-outline font-label-md mb-1">Item Diselamatkan Hari Ini</p>
+        <h2 className="font-h2 text-[32px] text-on-background">42 Item</h2>
       </div>
 
       <div className="bg-white p-6 rounded-xl shadow-level-1 border border-white hover:shadow-md transition-shadow group">
@@ -32,10 +32,10 @@ export function PerformanceTiles() {
           <div className="w-12 h-12 bg-tertiary-fixed/30 rounded-full flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
             <Archive className="w-6 h-6" />
           </div>
-          <span className="text-label-md text-outline">8 expiring soon</span>
+          <span className="text-label-md text-outline">8 segera kedaluwarsa</span>
         </div>
-        <p className="text-outline font-label-md mb-1">Active Listings</p>
-        <h2 className="font-h2 text-[32px] text-on-background">18 Listings</h2>
+        <p className="text-outline font-label-md mb-1">Daftar Aktif</p>
+        <h2 className="font-h2 text-[32px] text-on-background">18 Daftar</h2>
       </div>
     </motion.section>
   )

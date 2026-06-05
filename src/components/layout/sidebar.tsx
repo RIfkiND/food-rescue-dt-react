@@ -11,9 +11,13 @@ import {
   Receipt,
   MapPin,
   Leaf,
-  HelpCircle
+  HelpCircle,
+  ShoppingBag,
+  Ticket,
+  Store,
+  Wallet
 } from 'lucide-react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { cn } from '@/lib/utils'
 
 interface SidebarProps {
@@ -21,25 +25,26 @@ interface SidebarProps {
 }
 
 export function Sidebar({ variant = 'mitra' }: SidebarProps) {
+  const navigate = useNavigate()
   const isProfile = variant === 'profile'
   const location = useLocation()
   const path = location.pathname
 
   const mitraLinks = [
-    { name: 'Dashboard', icon: LayoutDashboard, path: '/dashboard/mitra' },
-    { name: 'Inventory', icon: Package, path: '/dashboard/mitra/inventory' },
-    { name: 'Analytics', icon: LineChart, path: '/dashboard/mitra/analytics' },
-    { name: 'History', icon: History, path: '/dashboard/mitra/history' },
-    { name: 'Verification', icon: ShieldCheck, path: '/dashboard/mitra/verification' },
-    { name: 'Users', icon: Users, path: '/dashboard/mitra/users' },
+    { name: 'Dasbor', icon: LayoutDashboard, path: '/dashboard/mitra' },
+    { name: 'Inventaris', icon: Package, path: '/dashboard/mitra/inventory' },
+    { name: 'Analitik', icon: LineChart, path: '/dashboard/mitra/analytics' },
+    { name: 'Riwayat', icon: History, path: '/dashboard/mitra/history' },
+    { name: 'Makanan', icon: ShoppingBag, path: '/dashboard/mitra/food' },
+    { name: 'Kupon', icon: Ticket, path: '/dashboard/mitra/coupons' },
   ]
 
   const profileLinks = [
-    { name: 'Profile', icon: LayoutDashboard, path: '/dashboard/profile' },
-    { name: 'Orders', icon: Receipt, path: '/dashboard/profile/orders' },
-    { name: 'Addresses', icon: MapPin, path: '/dashboard/profile/addresses' },
-    { name: 'Impact', icon: Leaf, path: '/dashboard/profile/impact' },
-    { name: 'Settings', icon: Settings, path: '/dashboard/profile/settings' },
+    { name: 'Profil', icon: LayoutDashboard, path: '/dashboard/profile' },
+    { name: 'Profil Toko', icon: Store, path: '/dashboard/profile/store' },
+    { name: 'Lokasi', icon: MapPin, path: '/dashboard/profile/addresses' },
+    { name: 'Dompet', icon: Wallet, path: '/dashboard/profile/wallet' },
+    { name: 'Pengaturan', icon: Settings, path: '/dashboard/profile/settings' },
   ]
 
   const activeLinks = isProfile ? profileLinks : mitraLinks
@@ -59,14 +64,14 @@ export function Sidebar({ variant = 'mitra' }: SidebarProps) {
             </div>
             <div>
               <p className="font-bold text-primary">Alex Rivers</p>
-              <p className="text-[10px] text-gray-500 uppercase tracking-wider">Local Hero • Level 4</p>
+              <p className="text-[10px] text-gray-500 uppercase tracking-wider">Pahlawan Lokal • Level 4</p>
             </div>
           </div>
         </div>
       ) : (
         <div className="mb-6 px-2">
-          <p className="text-lg font-black text-emerald-800 dark:text-emerald-400">RescueEat Admin</p>
-          <p className="text-xs text-zinc-500">Food Waste Reduction Hub</p>
+          <p className="text-lg font-black text-emerald-800 dark:text-emerald-400">Admin Mitra</p>
+          <p className="text-xs text-zinc-500">Pusat Penyelamatan Makanan</p>
         </div>
       )}
 
@@ -92,30 +97,28 @@ export function Sidebar({ variant = 'mitra' }: SidebarProps) {
 
       {isProfile ? (
         <>
-          <button className="mt-6 w-full py-3 px-4 bg-primary text-white rounded-lg font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-transform">
-            Donate Food
-          </button>
+
           <div className="pt-6 border-t border-gray-100 dark:border-slate-800 space-y-1">
             <Link to="/help" className="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-slate-400 hover:bg-gray-50 rounded-lg">
-              <HelpCircle className="w-5 h-5" /> Help Center
+              <HelpCircle className="w-5 h-5" /> Pusat Bantuan
             </Link>
-            <button className="w-full flex items-center gap-3 px-4 py-3 text-error dark:text-red-400 hover:bg-red-50 rounded-lg transition-all">
-              <LogOut className="w-5 h-5" /> Logout
+            <button onClick={() => navigate('/login')} className="w-full flex items-center gap-3 px-4 py-3 text-error dark:text-red-400 hover:bg-red-50 rounded-lg transition-all">
+              <LogOut className="w-5 h-5" /> Keluar
             </button>
           </div>
         </>
       ) : (
         <div className="mt-auto pb-20 space-y-1">
-          <button className="w-full flex items-center justify-center gap-2 bg-primary text-white py-3 rounded-lg font-bold shadow-md hover:scale-[1.02] active:scale-95 transition-all">
+          <Link to="/dashboard/mitra/new-listing" className="w-full flex items-center justify-center gap-2 bg-primary text-white py-3 rounded-lg font-bold shadow-md hover:scale-[1.02] active:scale-95 transition-all">
             <Plus className="w-5 h-5" />
-            Add New Listing
-          </button>
+            Tambah Daftar Baru
+          </Link>
           <div className="pt-4 mt-4 border-t border-zinc-100">
             <Link to="/dashboard/mitra/settings" className="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-600 hover:bg-zinc-50 transition-all">
-              <Settings className="w-5 h-5" /> Settings
+              <Settings className="w-5 h-5" /> Pengaturan
             </Link>
-            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-error hover:bg-error-container/20 transition-all">
-              <LogOut className="w-5 h-5" /> Logout
+            <button onClick={() => navigate('/login')} className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-error hover:bg-error-container/20 transition-all">
+              <LogOut className="w-5 h-5" /> Keluar
             </button>
           </div>
         </div>

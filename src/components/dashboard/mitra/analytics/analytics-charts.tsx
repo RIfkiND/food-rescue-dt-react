@@ -8,15 +8,15 @@ export function AnalyticsCharts() {
       {/* Waste Recovery Breakdown */}
       <div className="lg:col-span-2 bg-white p-8 rounded-[2rem] shadow-sm border border-zinc-100">
         <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-8 gap-4">
-          <h3 className="font-h3 text-[24px] font-bold text-on-surface">Waste Reduced Trends</h3>
+          <h3 className="font-h3 text-[24px] font-bold text-on-surface">Tren Pengurangan Sampah</h3>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-primary"></span>
-              <span className="text-caption text-zinc-500 font-medium">Recovered</span>
+              <span className="text-caption text-zinc-500 font-medium">Dipulihkan</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-secondary-container"></span>
-              <span className="text-caption text-zinc-500 font-medium">Redirected</span>
+              <span className="text-caption text-zinc-500 font-medium">Diarahkan Ulang</span>
             </div>
           </div>
         </div>
@@ -24,13 +24,13 @@ export function AnalyticsCharts() {
         <div className="relative h-64 flex items-end justify-between gap-4 px-4 border-b border-zinc-100">
           {/* Dynamic Bars Simulator */}
           {[
-            { label: 'Mon', h: '40%', opacity: 'opacity-20' },
-            { label: 'Tue', h: '65%', opacity: 'opacity-40' },
-            { label: 'Wed', h: '85%', opacity: 'opacity-100', active: true },
-            { label: 'Thu', h: '55%', opacity: 'opacity-30' },
-            { label: 'Fri', h: '75%', opacity: 'opacity-50' },
-            { label: 'Sat', h: '30%', opacity: 'opacity-20' },
-            { label: 'Sun', h: '20%', opacity: 'opacity-10' },
+            { label: 'Sen', h: '40%', opacity: 'opacity-20' },
+            { label: 'Sel', h: '65%', opacity: 'opacity-40' },
+            { label: 'Rab', h: '85%', opacity: 'opacity-100', active: true },
+            { label: 'Kam', h: '55%', opacity: 'opacity-30' },
+            { label: 'Jum', h: '75%', opacity: 'opacity-50' },
+            { label: 'Sab', h: '30%', opacity: 'opacity-20' },
+            { label: 'Min', h: '20%', opacity: 'opacity-10' },
           ].map((day, i) => (
             <div key={i} className="w-full flex flex-col items-center gap-2 h-full justify-end group">
               <div 
@@ -45,11 +45,11 @@ export function AnalyticsCharts() {
 
       {/* Customer Impact Demographics */}
       <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-zinc-100 flex flex-col">
-        <h3 className="font-h3 text-[24px] font-bold mb-6 text-on-surface">Impact by Category</h3>
+        <h3 className="font-h3 text-[24px] font-bold mb-6 text-on-surface">Dampak berdasarkan Kategori</h3>
         <div className="space-y-6 flex-1">
           <div>
             <div className="flex justify-between text-sm mb-2">
-              <span className="text-zinc-600 font-semibold">Bakery & Grains</span>
+              <span className="text-zinc-600 font-semibold">Roti & Biji-bijian</span>
               <span className="text-primary font-bold">42%</span>
             </div>
             <div className="h-2 bg-zinc-100 rounded-full overflow-hidden">
@@ -58,7 +58,7 @@ export function AnalyticsCharts() {
           </div>
           <div>
             <div className="flex justify-between text-sm mb-2">
-              <span className="text-zinc-600 font-semibold">Produce & Fruits</span>
+              <span className="text-zinc-600 font-semibold">Produk & Buah</span>
               <span className="text-primary font-bold">35%</span>
             </div>
             <div className="h-2 bg-zinc-100 rounded-full overflow-hidden">
@@ -67,7 +67,7 @@ export function AnalyticsCharts() {
           </div>
           <div>
             <div className="flex justify-between text-sm mb-2">
-              <span className="text-zinc-600 font-semibold">Prepared Meals</span>
+              <span className="text-zinc-600 font-semibold">Makanan Siap Saji</span>
               <span className="text-primary font-bold">18%</span>
             </div>
             <div className="h-2 bg-zinc-100 rounded-full overflow-hidden">
@@ -76,7 +76,7 @@ export function AnalyticsCharts() {
           </div>
           <div>
             <div className="flex justify-between text-sm mb-2">
-              <span className="text-zinc-600 font-semibold">Dairy & Others</span>
+              <span className="text-zinc-600 font-semibold">Susu & Lainnya</span>
               <span className="text-primary font-bold">5%</span>
             </div>
             <div className="h-2 bg-zinc-100 rounded-full overflow-hidden">
@@ -90,8 +90,8 @@ export function AnalyticsCharts() {
             <Leaf className="w-5 h-5" />
           </span>
           <div>
-            <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-tight">Environmental Offset</p>
-            <p className="text-sm font-bold text-primary">2.4 Tons CO2 Saved</p>
+            <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-tight">Pengurangan Emisi</p>
+            <p className="text-sm font-bold text-primary">2.4 Ton CO2 Dihemat</p>
           </div>
         </div>
       </div>

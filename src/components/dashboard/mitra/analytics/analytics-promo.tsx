@@ -14,10 +14,10 @@ export function AnalyticsPromo() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/90 to-emerald-900/40 flex items-center p-8">
           <div className="max-w-[240px]">
-            <h4 className="text-white font-h3 text-[24px] font-bold mb-2">Impact Certification</h4>
-            <p className="text-white/80 text-sm mb-4">You're in the top 5% of waste-reducing partners this month!</p>
+            <h4 className="text-white font-h3 text-[24px] font-bold mb-2">Sertifikasi Dampak</h4>
+            <p className="text-white/80 text-sm mb-4">Anda berada di 5% teratas mitra pengurang sampah bulan ini!</p>
             <button className="bg-white text-primary px-4 py-2 rounded-lg font-bold text-sm shadow-lg hover:scale-105 active:scale-95 transition-transform">
-              Download Badge
+              Unduh Lencana
             </button>
           </div>
         </div>
@@ -26,8 +26,8 @@ export function AnalyticsPromo() {
       {/* Save More with Analytics Card */}
       <div className="bg-[#8e4e14] p-8 rounded-[2rem] text-white flex justify-between items-center min-h-[200px]">
         <div className="max-w-[240px]">
-          <h4 className="font-h3 text-[24px] font-bold mb-2">Save More with Analytics</h4>
-          <p className="text-orange-100 text-sm">Unlock predictive insights to anticipate inventory surplus before it happens.</p>
+          <h4 className="font-h3 text-[24px] font-bold mb-2">Hemat Lebih Banyak dengan Analitik</h4>
+          <p className="text-orange-100 text-sm">Buka wawasan prediktif untuk mengantisipasi surplus inventaris sebelum terjadi.</p>
         </div>
         <div className="p-4 bg-white/10 rounded-full border border-white/20 shrink-0">
           <Sparkles className="w-8 h-8 text-white" />

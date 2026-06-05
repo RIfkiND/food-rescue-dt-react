@@ -1,19 +1,24 @@
-import { Download } from 'lucide-react'
+import { Download, Plus } from 'lucide-react'
 import { motion } from 'motion/react'
+import { Link } from 'react-router-dom'
 import { fadeUp } from '@/lib/motion'
 
 export function InventoryHeader() {
   return (
     <motion.div variants={fadeUp} className="flex flex-col md:flex-row md:items-end justify-between gap-4">
       <div>
-        <h2 className="font-h2 text-h2 text-primary text-[32px] font-semibold">Inventory Management</h2>
-        <p className="font-body-md text-body-md text-outline">Manage and track your rescued food listings in real-time.</p>
+        <h2 className="font-h2 text-h2 text-primary text-[32px] font-semibold">Manajemen Inventaris</h2>
+        <p className="font-body-md text-body-md text-outline">Kelola dan lacak daftar makanan penyelamatan Anda secara real-time.</p>
       </div>
       <div className="flex gap-2">
         <button className="flex items-center gap-2 px-4 py-2 rounded-lg border-[1.5px] border-primary text-primary font-label-md hover:bg-emerald-50 transition-all text-sm font-semibold">
           <Download className="w-4 h-4" />
-          Export Report
+          Unduh Laporan
         </button>
+        <Link to="/dashboard/mitra/new-listing" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white font-label-md hover:bg-primary-container transition-all text-sm font-semibold shadow-sm">
+          <Plus className="w-4 h-4" />
+          Daftar Baru
+        </Link>
       </div>
     </motion.div>
   )

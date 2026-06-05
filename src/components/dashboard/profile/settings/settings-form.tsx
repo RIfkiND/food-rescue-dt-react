@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 export function SettingsForm() {
   const [activeTab, setActiveTab] = useState('profile')
-  const tabs = ['Profile', 'Notifications', 'Security']
+  const tabs = ['Profil', 'Notifikasi', 'Keamanan']
 
   return (
     <motion.div variants={fadeUp} className="bg-surface-container-lowest rounded-2xl shadow-[0px_4px_20px_rgba(29,53,87,0.05)] overflow-hidden border border-zinc-100">
@@ -26,7 +26,7 @@ export function SettingsForm() {
       </div>
 
       <div className="p-8">
-        {activeTab === 'profile' && (
+        {activeTab === 'profil' && (
           <form className="space-y-8">
             <div className="flex items-center gap-6">
               <div className="relative">
@@ -42,14 +42,14 @@ export function SettingsForm() {
                 </button>
               </div>
               <div>
-                <h3 className="font-bold text-lg text-on-surface">Profile Picture</h3>
-                <p className="text-sm text-zinc-500">JPG, GIF or PNG. Max size of 800K</p>
+                <h3 className="font-bold text-lg text-on-surface">Foto Profil</h3>
+                <p className="text-sm text-zinc-500">JPG, GIF atau PNG. Ukuran maksimal 800K</p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
-                <label className="font-label-md text-sm font-semibold text-on-surface">First Name</label>
+                <label className="font-label-md text-sm font-semibold text-on-surface">Nama Depan</label>
                 <input 
                   type="text" 
                   className="w-full rounded-lg border-zinc-200 bg-white p-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all" 
@@ -57,7 +57,7 @@ export function SettingsForm() {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="font-label-md text-sm font-semibold text-on-surface">Last Name</label>
+                <label className="font-label-md text-sm font-semibold text-on-surface">Nama Belakang</label>
                 <input 
                   type="text" 
                   className="w-full rounded-lg border-zinc-200 bg-white p-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all" 
@@ -65,7 +65,7 @@ export function SettingsForm() {
                 />
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
-                <label className="font-label-md text-sm font-semibold text-on-surface">Email Address</label>
+                <label className="font-label-md text-sm font-semibold text-on-surface">Alamat Email</label>
                 <input 
                   type="email" 
                   className="w-full rounded-lg border-zinc-200 bg-zinc-50 p-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all" 
@@ -74,7 +74,7 @@ export function SettingsForm() {
                 />
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
-                <label className="font-label-md text-sm font-semibold text-on-surface">Phone Number</label>
+                <label className="font-label-md text-sm font-semibold text-on-surface">Nomor Telepon</label>
                 <input 
                   type="tel" 
                   className="w-full rounded-lg border-zinc-200 bg-white p-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all" 
@@ -88,27 +88,27 @@ export function SettingsForm() {
                 type="button" 
                 className="px-6 py-2 font-semibold text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
               >
-                Cancel
+                Batal
               </button>
               <button 
                 type="submit" 
                 className="flex items-center gap-2 px-6 py-2 font-semibold text-sm text-white bg-primary rounded-lg shadow-md hover:bg-emerald-800 active:scale-95 transition-all"
               >
-                <Save className="w-4 h-4" /> Save Changes
+                <Save className="w-4 h-4" /> Simpan Perubahan
               </button>
             </div>
           </form>
         )}
 
-        {activeTab === 'notifications' && (
+        {activeTab === 'notifikasi' && (
           <div className="space-y-6">
-            <h3 className="font-bold text-lg text-on-surface">Email Notifications</h3>
+            <h3 className="font-bold text-lg text-on-surface">Notifikasi Email</h3>
             
             <div className="space-y-4">
               <div className="flex items-center justify-between py-2">
                 <div>
-                  <p className="font-semibold text-sm text-on-surface">Order Updates</p>
-                  <p className="text-xs text-zinc-500">Get notified when your rescue order status changes.</p>
+                  <p className="font-semibold text-sm text-on-surface">Pembaruan Pesanan</p>
+                  <p className="text-xs text-zinc-500">Dapatkan notifikasi ketika status pesanan penyelamatan makanan Anda berubah.</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input type="checkbox" className="sr-only peer" defaultChecked />
@@ -117,8 +117,8 @@ export function SettingsForm() {
               </div>
               <div className="flex items-center justify-between py-2">
                 <div>
-                  <p className="font-semibold text-sm text-on-surface">New Rescues Near Me</p>
-                  <p className="text-xs text-zinc-500">Weekly digest of new food rescue opportunities.</p>
+                  <p className="font-semibold text-sm text-on-surface">Penyelamatan Baru di Dekat Saya</p>
+                  <p className="text-xs text-zinc-500">Ringkasan mingguan tentang peluang penyelamatan makanan baru.</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input type="checkbox" className="sr-only peer" defaultChecked />
@@ -127,8 +127,8 @@ export function SettingsForm() {
               </div>
               <div className="flex items-center justify-between py-2">
                 <div>
-                  <p className="font-semibold text-sm text-on-surface">Impact Reports</p>
-                  <p className="text-xs text-zinc-500">Monthly summary of your carbon offset and savings.</p>
+                  <p className="font-semibold text-sm text-on-surface">Laporan Dampak</p>
+                  <p className="text-xs text-zinc-500">Ringkasan bulanan dari pengurangan karbon dan penghematan Anda.</p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input type="checkbox" className="sr-only peer" />
@@ -139,33 +139,33 @@ export function SettingsForm() {
             
             <div className="pt-6 border-t border-zinc-100 flex justify-end">
               <button className="flex items-center gap-2 px-6 py-2 font-semibold text-sm text-white bg-primary rounded-lg shadow-md hover:bg-emerald-800 active:scale-95 transition-all">
-                Update Preferences
+                Perbarui Preferensi
               </button>
             </div>
           </div>
         )}
 
-        {activeTab === 'security' && (
+        {activeTab === 'keamanan' && (
           <div className="space-y-6">
-            <h3 className="font-bold text-lg text-on-surface">Change Password</h3>
+            <h3 className="font-bold text-lg text-on-surface">Ubah Kata Sandi</h3>
             
             <form className="space-y-4 max-w-md">
               <div className="flex flex-col gap-2">
-                <label className="font-label-md text-sm font-semibold text-on-surface">Current Password</label>
+                <label className="font-label-md text-sm font-semibold text-on-surface">Kata Sandi Saat Ini</label>
                 <input 
                   type="password" 
                   className="w-full rounded-lg border-zinc-200 bg-white p-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all" 
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="font-label-md text-sm font-semibold text-on-surface">New Password</label>
+                <label className="font-label-md text-sm font-semibold text-on-surface">Kata Sandi Baru</label>
                 <input 
                   type="password" 
                   className="w-full rounded-lg border-zinc-200 bg-white p-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all" 
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="font-label-md text-sm font-semibold text-on-surface">Confirm New Password</label>
+                <label className="font-label-md text-sm font-semibold text-on-surface">Konfirmasi Kata Sandi Baru</label>
                 <input 
                   type="password" 
                   className="w-full rounded-lg border-zinc-200 bg-white p-3 text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all" 
@@ -174,7 +174,7 @@ export function SettingsForm() {
               
               <div className="pt-4 flex justify-start">
                 <button type="submit" className="flex items-center gap-2 px-6 py-2 font-semibold text-sm text-white bg-primary rounded-lg shadow-md hover:bg-emerald-800 active:scale-95 transition-all">
-                  Update Password
+                  Perbarui Kata Sandi
                 </button>
               </div>
             </form>

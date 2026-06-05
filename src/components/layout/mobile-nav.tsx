@@ -9,6 +9,12 @@ import {
   List,
   HeartHandshake,
   History,
+  ShoppingBag,
+  Store,
+  Leaf,
+  MapPin,
+  Wallet,
+  Ticket
 } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { cn } from '@/lib/utils'
@@ -23,17 +29,17 @@ export function MobileNav({ variant = 'mitra' }: MobileNavProps) {
   const path = location.pathname
 
   const profileLinks = [
-    { name: 'Home', icon: Home, path: '/dashboard/profile' },
-    { name: 'Orders', icon: List, path: '/dashboard/profile/orders' },
-    { name: 'Impact', icon: HeartHandshake, path: '/dashboard/profile/impact' },
-    { name: 'Profile', icon: User, path: '/dashboard/profile/settings' },
+    { name: 'Beranda', icon: LayoutDashboard, path: '/dashboard/profile' },
+    { name: 'Toko', icon: Store, path: '/dashboard/profile/store' },
+    { name: 'Lokasi', icon: MapPin, path: '/dashboard/profile/addresses' },
+    { name: 'Dompet', icon: Wallet, path: '/dashboard/profile/wallet' },
   ]
 
   const mitraLinks = [
-    { name: 'Home', icon: LayoutDashboard, path: '/dashboard/mitra' },
-    { name: 'Items', icon: Package, path: '/dashboard/mitra/inventory' },
-    { name: 'Stats', icon: LineChart, path: '/dashboard/mitra/analytics' },
-    { name: 'History', icon: History, path: '/dashboard/mitra/history' },
+    { name: 'Beranda', icon: LayoutDashboard, path: '/dashboard/mitra' },
+    { name: 'Makanan', icon: ShoppingBag, path: '/dashboard/mitra/food' },
+    { name: 'Kupon', icon: Ticket, path: '/dashboard/mitra/coupons' },
+    { name: 'Riwayat', icon: History, path: '/dashboard/mitra/history' },
   ]
 
   const links = isProfile ? profileLinks : mitraLinks
@@ -52,9 +58,9 @@ export function MobileNav({ variant = 'mitra' }: MobileNavProps) {
           return (
             <React.Fragment key="add-button-group">
               <div className="-mt-8 mx-2 relative z-10 flex-shrink-0">
-                <button className="w-12 h-12 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+                <Link to="/dashboard/mitra/new-listing" className="w-12 h-12 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
                   <Plus className="w-6 h-6" />
-                </button>
+                </Link>
               </div>
               <Link 
                 to={link.path}

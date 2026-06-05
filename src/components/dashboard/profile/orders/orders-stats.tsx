@@ -11,7 +11,7 @@ export function OrdersStats() {
         </div>
         <div>
           <h4 className="font-label-md text-sm font-semibold text-orange-800">Total Savings</h4>
-          <p className="font-h3 text-[24px] font-bold text-[#8e4e14]">$142.50</p>
+          <p className="font-h3 text-[24px] font-bold text-[#8e4e14]">Rp 142.500</p>
           <p className="font-caption text-xs text-on-surface-variant mt-1">Compared to retail prices</p>
         </div>
       </div>
