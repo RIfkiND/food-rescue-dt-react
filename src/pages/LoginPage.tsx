@@ -61,7 +61,7 @@ const LoginPage = () => {
         <div className="relative z-10">
           <div className="flex items-center gap-3 text-white">
             <Leaf className="w-10 h-10 fill-primary stroke-white" />
-            <span className="text-3xl font-h2 font-extrabold tracking-tighter">RescueFood</span>
+            <span className="text-3xl font-h2 font-extrabold tracking-tighter">FoodRescue</span>
           </div>
         </div>
 

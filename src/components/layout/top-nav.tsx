@@ -158,7 +158,7 @@ export function TopNav({ variant = 'mitra', className }: TopNavProps) {
                 <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-zinc-900 rounded-xl shadow-level-2 border border-zinc-100 dark:border-zinc-800 py-1 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2">
                   <div className="px-4 py-2 border-b border-zinc-100 dark:border-zinc-800 mb-1">
                     <p className="font-bold text-sm text-on-surface dark:text-white">
-                      {isProfile ? "Alex Rivers" : "RescueEat Admin"}
+                      {isProfile ? "Alex Rivers" : "FoodRescue Admin"}
                     </p>
                     <p className="text-xs text-zinc-500">
                       {isProfile ? "Local Hero" : "The Green Bakery"}
